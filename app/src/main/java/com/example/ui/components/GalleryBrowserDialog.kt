@@ -112,19 +112,24 @@ fun GalleryBrowserDialog(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column {
+                    Column(modifier = Modifier.weight(1f)) {
                         Text(
                             text = "METROPOLITAN MUSEUM CATALOG",
                             style = MaterialTheme.typography.headlineMedium.copy(
+                                fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Serif
                             ),
-                            color = ChampagneGold
+                            color = ChampagneGold,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                         Text(
                             text = "Browse CC0 Public Domain Masterpieces (${filteredList.size} Artworks)",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MutedSlate
+                            color = MutedSlate,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                     IconButton(

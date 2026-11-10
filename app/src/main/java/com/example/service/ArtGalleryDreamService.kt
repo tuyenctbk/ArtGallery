@@ -1,13 +1,15 @@
 package com.example.service
 
-import android.os.Bundle
 import android.service.dreams.DreamService
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.setViewTreeLifecycleOwner
+import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
@@ -15,10 +17,11 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.example.ui.ArtGalleryApp
 import com.example.ui.theme.ArtGalleryTheme
 
-class ArtGalleryDreamService : DreamService(), LifecycleOwner, SavedStateRegistryOwner {
+class ArtGalleryDreamService : DreamService(), LifecycleOwner, ViewModelStoreOwner, SavedStateRegistryOwner {
 
     private val lifecycleRegistry = LifecycleRegistry(this)
     private val savedStateRegistryController = SavedStateRegistryController.create(this)
+    override val viewModelStore: ViewModelStore = ViewModelStore()
 
     override val lifecycle: Lifecycle
         get() = lifecycleRegistry
@@ -39,10 +42,14 @@ class ArtGalleryDreamService : DreamService(), LifecycleOwner, SavedStateRegistr
 
         window?.decorView?.let { decor ->
             decor.setViewTreeLifecycleOwner(this)
+            decor.setViewTreeViewModelStoreOwner(this)
             decor.setViewTreeSavedStateRegistryOwner(this)
         }
 
         val composeView = ComposeView(this).apply {
+            setViewTreeLifecycleOwner(this@ArtGalleryDreamService)
+            setViewTreeViewModelStoreOwner(this@ArtGalleryDreamService)
+            setViewTreeSavedStateRegistryOwner(this@ArtGalleryDreamService)
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ArtGalleryTheme {
@@ -68,5 +75,6 @@ class ArtGalleryDreamService : DreamService(), LifecycleOwner, SavedStateRegistr
     override fun onDestroy() {
         super.onDestroy()
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+        viewModelStore.clear()
     }
 }

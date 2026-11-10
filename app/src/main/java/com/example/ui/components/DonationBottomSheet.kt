@@ -35,7 +35,7 @@ import androidx.compose.material.icons.filled.QrCode2
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -155,7 +155,7 @@ fun DonationBottomSheet(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            Divider(color = DarkBorder)
+            HorizontalDivider(color = DarkBorder)
             Spacer(modifier = Modifier.height(16.dp))
 
             // Active Patron Recognition Card
@@ -323,7 +323,7 @@ fun DonationBottomSheet(
             }
 
             Spacer(modifier = Modifier.height(20.dp))
-            Divider(color = DarkBorder)
+            HorizontalDivider(color = DarkBorder)
             Spacer(modifier = Modifier.height(16.dp))
 
             // Section 2: Alternative Support Channels (PayPal & Ko-fi)
@@ -342,9 +342,7 @@ fun DonationBottomSheet(
                 OutlinedButton(
                     onClick = { showQrCode = !showQrCode },
                     colors = ButtonDefaults.outlinedButtonColors(contentColor = WarmIvory),
-                    border = ButtonDefaults.outlinedButtonBorder.copy(
-                        brush = androidx.compose.ui.graphics.SolidColor(DarkBorder)
-                    ),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier
                         .weight(1f)
@@ -380,9 +378,7 @@ fun DonationBottomSheet(
                         }
                     },
                     colors = ButtonDefaults.outlinedButtonColors(contentColor = WarmIvory),
-                    border = ButtonDefaults.outlinedButtonBorder.copy(
-                        brush = androidx.compose.ui.graphics.SolidColor(DarkBorder)
-                    ),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier
                         .weight(1f)

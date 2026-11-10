@@ -3,14 +3,14 @@ package com.example.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import android.app.Activity
-import com.example.util.DonationManager
 import com.example.data.AudioSoundscapeManager
 import com.example.data.MetMuseumRepository
 import com.example.data.model.Artwork
+import com.example.data.model.CategoryType
 import com.example.data.model.MuseumCategory
 import com.example.data.model.SlideshowConfig
 import com.example.data.model.SoundscapeType
+import com.example.util.DonationManager
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +35,8 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
     private val _config = MutableStateFlow(SlideshowConfig(activeCategory = _activeCategory.value))
     val config: StateFlow<SlideshowConfig> = _config.asStateFlow()
 
-    private val _artworks = MutableStateFlow<List<Artwork>>(emptyList())
+    // Immediately populate with curatedMasterpieces so the canvas is never empty at launch
+    private val _artworks = MutableStateFlow<List<Artwork>>(repository.curatedMasterpieces)
     val artworks: StateFlow<List<Artwork>> = _artworks.asStateFlow()
 
     private val _favoriteIds = MutableStateFlow<Set<Int>>(emptySet())
@@ -98,17 +99,27 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
             }
         }
 
-        // Observe active category and load artworks
+        // Observe active category: display local curated works immediately, then enrich from Met API
         viewModelScope.launch {
             _activeCategory.collectLatest { cat ->
-                _isLoadingCategory.value = true
-                val list = repository.fetchArtworksFromMetApi(cat)
-                _artworks.value = if (list.isEmpty()) repository.curatedMasterpieces else list
-                _isLoadingCategory.value = false
+                val immediateList = repository.getArtworksForCategory(cat)
+                _artworks.value = immediateList
                 if (_currentIndex.value >= _artworks.value.size) {
                     _currentIndex.value = 0
                 }
                 resetSlideshowTimer()
+
+                if (cat.categoryType != CategoryType.FAVORITES) {
+                    _isLoadingCategory.value = true
+                    val enrichedList = repository.fetchArtworksFromMetApi(cat)
+                    if (enrichedList.isNotEmpty()) {
+                        _artworks.value = enrichedList
+                        if (_currentIndex.value >= _artworks.value.size) {
+                            _currentIndex.value = 0
+                        }
+                    }
+                    _isLoadingCategory.value = false
+                }
             }
         }
 
@@ -199,6 +210,20 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
+    fun shuffleArtwork() {
+        val size = _artworks.value.size
+        if (size > 1) {
+            var next = (0 until size).random()
+            if (next == _currentIndex.value) {
+                next = (next + 1) % size
+            }
+            _currentIndex.value = next
+            repository.incrementSlideCount()
+            resetSlideshowTimer()
+            onUserActivity()
+        }
+    }
+
     fun selectArtworkIndex(index: Int) {
         if (index in _artworks.value.indices) {
             _currentIndex.value = index
@@ -216,6 +241,8 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
         _isPlacardVisible.value = !_isPlacardVisible.value
         if (_isPlacardVisible.value) {
             resetPlacardTimer()
+        } else {
+            placardTimeoutJob?.cancel()
         }
     }
 

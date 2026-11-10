@@ -2,6 +2,7 @@ package com.example.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
@@ -9,6 +10,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -42,8 +44,6 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.ui.theme.DarkObsidian
-import com.example.ui.theme.MutedSlate
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ui.components.AmbientClockOverlay
 import com.example.ui.components.ArtGallerySplashScreen
@@ -56,7 +56,9 @@ import com.example.ui.components.MuseumPlacard
 import com.example.ui.components.SettingsDrawer
 import com.example.ui.components.SupportPatronDialog
 import com.example.ui.theme.ChampagneGold
+import com.example.ui.theme.DarkObsidian
 import com.example.ui.theme.GoldLeafBorder
+import com.example.ui.theme.MutedSlate
 import com.example.ui.theme.SurfaceGlass
 import com.example.ui.theme.WarmIvory
 
@@ -101,14 +103,13 @@ fun ArtGalleryApp(
         }
     }
 
-    Box(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .testTag("art_gallery_app_root")
             .pointerInput(Unit) {
                 detectTapGestures(
                     onTap = {
-                        viewModel.onUserActivity()
                         viewModel.togglePlacard()
                     },
                     onDoubleTap = {
@@ -133,12 +134,24 @@ fun ArtGalleryApp(
                 )
             }
     ) {
+        val isCompact = maxWidth < 740.dp
+        val isControlBarShown = isPlacardVisible || viewModel.isAnyModalOpen
+        val clockTopOffset by animateDpAsState(
+            targetValue = when {
+                !isControlBarShown -> 20.dp
+                isCompact -> 132.dp
+                else -> 88.dp
+            },
+            label = "ClockTopOffset"
+        )
+
         // Fullscreen 4K Artwork Canvas with multi-axis Ken Burns motion and rich empty state
         ArtworkImageView(
             artwork = currentArtwork,
             kenBurnsEffect = config.kenBurnsEffect,
             ambientBacklight = config.ambientBacklight,
             ambientGlowIntensity = config.ambientGlowIntensity,
+            museumFrameMatte = config.museumFrameMatte,
             onExploreClick = { viewModel.openCategorySelection() }
         )
 
@@ -162,7 +175,7 @@ fun ArtGalleryApp(
 
         // Top Kiosk Control Bar (Auto-hides with placard)
         KioskControlBar(
-            isVisible = isPlacardVisible || viewModel.isAnyModalOpen,
+            isVisible = isControlBarShown,
             isPlaying = isPlaying,
             currentIndex = currentIndex,
             totalCount = artworks.size,
@@ -174,6 +187,7 @@ fun ArtGalleryApp(
             onTogglePlayPause = { viewModel.togglePlayPause() },
             onNext = { viewModel.nextArtwork() },
             onPrev = { viewModel.prevArtwork() },
+            onShuffle = { viewModel.shuffleArtwork() },
             onToggleFavorite = { currentArtwork?.let { viewModel.toggleFavorite(it.id) } },
             onOpenCategorySelection = { viewModel.openCategorySelection() },
             onSelectSoundscape = { viewModel.setSoundscape(it) },
@@ -190,7 +204,7 @@ fun ArtGalleryApp(
             exit = fadeOut(),
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 96.dp)
+                .padding(top = if (isCompact) 136.dp else 96.dp)
         ) {
             Box(
                 modifier = Modifier
@@ -226,7 +240,7 @@ fun ArtGalleryApp(
                 isVisible = isPlacardVisible || config.deskStandMode,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .padding(top = 92.dp, end = 24.dp)
+                    .padding(top = clockTopOffset, end = if (isCompact) 14.dp else 24.dp)
             )
         }
 
@@ -240,7 +254,7 @@ fun ArtGalleryApp(
                 onClickInfo = { viewModel.openDetailModal() },
                 modifier = Modifier
                     .align(Alignment.BottomStart)
-                    .padding(24.dp)
+                    .padding(horizontal = if (isCompact) 14.dp else 24.dp, vertical = if (isCompact) 16.dp else 24.dp)
             )
         }
 
@@ -287,7 +301,7 @@ fun ArtGalleryApp(
         }
 
         // Rare Milestone Appreciation Pill (Only after 25+ slides or 5+ favorites, permanently dismissable)
-        if (viewModel.isMilestoneCelebrationEligible() && isPlacardVisible && !viewModel.isAnyModalOpen) {
+        if (viewModel.isMilestoneCelebrationEligible() && isPlacardVisible && !viewModel.isAnyModalOpen && !isCompact) {
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
@@ -377,7 +391,10 @@ fun ArtGalleryApp(
         if (showSplash) {
             ArtGallerySplashScreen(
                 visible = showSplash,
-                onDismiss = { showSplash = false }
+                onDismiss = {
+                    showSplash = false
+                    viewModel.onUserActivity()
+                }
             )
         }
     }

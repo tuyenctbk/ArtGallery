@@ -100,14 +100,14 @@ fun ArtGallerySplashScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(32.dp)
+                    .padding(16.dp)
                     .border(1.dp, GoldLeafBorder.copy(alpha = 0.25f), RoundedCornerShape(16.dp))
             )
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = Modifier.padding(24.dp)
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 24.dp)
             ) {
                 // Gold museum emblem badge
                 Box(
@@ -136,10 +136,11 @@ fun ArtGallerySplashScreen(
                     style = MaterialTheme.typography.labelMedium.copy(
                         fontFamily = FontFamily.Serif,
                         fontWeight = FontWeight.SemiBold,
-                        letterSpacing = 2.5.sp,
-                        fontSize = 13.sp
+                        letterSpacing = 2.2.sp,
+                        fontSize = 12.sp
                     ),
-                    color = ChampagneGold
+                    color = ChampagneGold,
+                    maxLines = 1
                 )
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -150,10 +151,11 @@ fun ArtGallerySplashScreen(
                     style = MaterialTheme.typography.headlineLarge.copy(
                         fontFamily = FontFamily.Serif,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 36.sp,
-                        letterSpacing = 3.sp
+                        fontSize = 33.sp,
+                        letterSpacing = 2.5.sp
                     ),
-                    color = WarmIvory
+                    color = WarmIvory,
+                    maxLines = 1
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
@@ -164,15 +166,16 @@ fun ArtGallerySplashScreen(
                         .clip(RoundedCornerShape(20.dp))
                         .background(SurfaceGlass)
                         .border(1.dp, DarkBorder, RoundedCornerShape(20.dp))
-                        .padding(horizontal = 18.dp, vertical = 6.dp)
+                        .padding(horizontal = 16.dp, vertical = 6.dp)
                 ) {
                     Text(
-                        text = "4K CC0 Public Domain Masterpieces • Ambient Daydream",
+                        text = "4K CC0 Public Domain Masterpieces • Ambient Frame",
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontSize = 12.sp,
+                            fontSize = 11.5.sp,
                             fontWeight = FontWeight.Medium
                         ),
-                        color = MutedSlate
+                        color = MutedSlate,
+                        maxLines = 1
                     )
                 }
 

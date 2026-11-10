@@ -36,7 +36,7 @@ import androidx.compose.material.icons.filled.QrCode2
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -172,7 +172,7 @@ fun SupportPatronDialog(
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Patron Recognition Badge if already a patron
@@ -339,7 +339,7 @@ fun SupportPatronDialog(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // METHOD 2: Alternative Support Channels (PayPal & Ko-fi)
@@ -358,7 +358,7 @@ fun SupportPatronDialog(
                     OutlinedButton(
                         onClick = { showQrCode = !showQrCode },
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = WarmIvory),
-                        border = ButtonDefaults.outlinedButtonBorder.copy(brush = androidx.compose.ui.graphics.SolidColor(DarkBorder)),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
                         shape = RoundedCornerShape(10.dp),
                         modifier = Modifier
                             .weight(1f)
@@ -391,7 +391,7 @@ fun SupportPatronDialog(
                             }
                         },
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = WarmIvory),
-                        border = ButtonDefaults.outlinedButtonBorder.copy(brush = androidx.compose.ui.graphics.SolidColor(DarkBorder)),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder),
                         shape = RoundedCornerShape(10.dp),
                         modifier = Modifier
                             .weight(1f)

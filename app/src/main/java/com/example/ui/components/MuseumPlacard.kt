@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -91,21 +92,24 @@ fun MuseumPlacard(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.widthIn(max = 480.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f, fill = false)
+                ) {
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(4.dp))
                             .background(ChampagneGold.copy(alpha = 0.2f))
-                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                            .padding(horizontal = 7.dp, vertical = 3.dp)
                     ) {
                         Text(
                             text = artwork.department.uppercase(),
                             style = MaterialTheme.typography.labelMedium.copy(
-                                fontSize = 11.sp,
+                                fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold,
-                                letterSpacing = 1.2.sp
+                                letterSpacing = 0.7.sp
                             ),
                             color = ChampagneGold,
                             maxLines = 1,
@@ -114,16 +118,16 @@ fun MuseumPlacard(
                     }
 
                     if (artwork.period.isNotEmpty()) {
-                        Spacer(modifier = Modifier.width(8.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(4.dp))
                                 .background(DarkBorder)
-                                .padding(horizontal = 8.dp, vertical = 3.dp)
+                                .padding(horizontal = 7.dp, vertical = 3.dp)
                         ) {
                             Text(
                                 text = artwork.period,
-                                style = MaterialTheme.typography.labelMedium.copy(fontSize = 11.sp),
+                                style = MaterialTheme.typography.labelMedium.copy(fontSize = 10.sp),
                                 color = WarmIvory,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
@@ -136,7 +140,7 @@ fun MuseumPlacard(
                     IconButton(
                         onClick = onToggleFavorite,
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(38.dp)
                             .testTag("placard_favorite_button")
                     ) {
                         Icon(
@@ -151,7 +155,7 @@ fun MuseumPlacard(
                     IconButton(
                         onClick = onClickInfo,
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(38.dp)
                             .testTag("placard_info_button")
                     ) {
                         Icon(

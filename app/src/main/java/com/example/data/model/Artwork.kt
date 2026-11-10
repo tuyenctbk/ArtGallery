@@ -51,7 +51,7 @@ data class MuseumCategory(
 data class SlideshowConfig(
     val intervalSeconds: Int = 15,
     val autoHidePlacard: Boolean = true,
-    val placardTimeoutSeconds: Int = 5,
+    val placardTimeoutSeconds: Int = 12,
     val showClock: Boolean = true,
     val soundscape: SoundscapeType = SoundscapeType.MUTE,
     val departmentFilter: String = "All Masterpieces",
@@ -61,5 +61,8 @@ data class SlideshowConfig(
     val deskStandMode: Boolean = false,
     val showMuseumLogo: Boolean = true,
     val ambientBacklight: Boolean = true,
-    val ambientGlowIntensity: Float = 0.65f
+    val ambientGlowIntensity: Float = 0.75f,
+    val museumFrameMatte: Boolean = true,
+    val shakeToNext: Boolean = true,
+    val shakeThresholdG: Float = 2.3f
 )

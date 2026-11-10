@@ -24,7 +24,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Museum
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -173,7 +173,7 @@ fun ArtworkDetailsModal(
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Metadata Grid
@@ -189,7 +189,7 @@ fun ArtworkDetailsModal(
 
                 if (artwork.description.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(16.dp))
-                    Divider(color = DarkBorder)
+                    HorizontalDivider(color = DarkBorder)
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = "Curatorial Overview",

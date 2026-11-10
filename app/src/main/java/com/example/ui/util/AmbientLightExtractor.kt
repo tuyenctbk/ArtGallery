@@ -55,8 +55,8 @@ object AmbientLightExtractor {
                     val sat = if (maxVal == 0f) 0f else (maxVal - minVal) / maxVal
                     val brightness = maxVal / 255f
 
-                    // Favor colors with good saturation and reasonable brightness
-                    if (sat > maxSat && brightness in 0.2f..0.9f) {
+                    // Favor colors with good saturation and luminous brightness
+                    if (sat > maxSat && brightness in 0.42f..0.96f) {
                         maxSat = sat
                         mostVibrantPixel = pixel
                     }
@@ -79,14 +79,28 @@ object AmbientLightExtractor {
             val topG = (topGreen / (24 * 6)).toInt().coerceIn(0, 255)
             val topB = (topBlue / (24 * 6)).toInt().coerceIn(0, 255)
 
-            // Warm and rich tones for ambient glow
-            val glowColor = if (maxSat > 0.25f) {
-                Color(vibR, vibG, vibB)
+            // Ensure luminous, rich tones for the ambient wall halo
+            val rawMax = max(vibR, max(vibG, vibB)).coerceAtLeast(1)
+            val boost = if (rawMax < 190) 190f / rawMax.toFloat() else 1f
+            val glowColor = if (maxSat > 0.18f) {
+                Color(
+                    (vibR * boost).toInt().coerceIn(0, 255),
+                    (vibG * boost).toInt().coerceIn(0, 255),
+                    (vibB * boost).toInt().coerceIn(0, 255)
+                )
             } else {
-                Color(topR, topG, topB)
+                Color(
+                    (topR * 1.3f).toInt().coerceIn(0, 255),
+                    (topG * 1.3f).toInt().coerceIn(0, 255),
+                    (topB * 1.3f).toInt().coerceIn(0, 255)
+                )
             }
 
-            val dominantColor = Color(avgR, avgG, avgB)
+            val dominantColor = Color(
+                (avgR * 1.15f).toInt().coerceIn(0, 255),
+                (avgG * 1.15f).toInt().coerceIn(0, 255),
+                (avgB * 1.15f).toInt().coerceIn(0, 255)
+            )
             val secondaryColor = Color(
                 (avgR * 0.6f + vibR * 0.4f).toInt().coerceIn(0, 255),
                 (avgG * 0.6f + vibG * 0.4f).toInt().coerceIn(0, 255),

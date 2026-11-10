@@ -110,27 +110,35 @@ fun CategorySelectionDialog(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.weight(1f)
+                    ) {
                         Icon(
                             imageVector = Icons.Default.Palette,
                             contentDescription = null,
                             tint = ChampagneGold,
-                            modifier = Modifier.size(32.dp)
+                            modifier = Modifier.size(30.dp)
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Column {
                             Text(
                                 text = "DEPARTMENTS & ART MOVEMENTS",
                                 style = MaterialTheme.typography.headlineMedium.copy(
+                                    fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
                                     fontFamily = FontFamily.Serif
                                 ),
-                                color = ChampagneGold
+                                color = ChampagneGold,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                             Text(
                                 text = "Filter Slideshow using Met Museum API Collections",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = MutedSlate
+                                color = MutedSlate,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
                     }

@@ -1,1 +1,12 @@
 /build
+/release
+/captures
+.cxx
+.externalNativeBuild
+*.apk
+*.aab
+*.ap_
+*.jks
+*.keystore
+local.properties
+.env

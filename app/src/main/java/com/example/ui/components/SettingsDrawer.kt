@@ -25,7 +25,7 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -124,7 +124,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Slideshow Duration Interval
@@ -162,7 +162,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Placard Tag Display Mode
@@ -200,7 +200,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Ken Burns Motion
@@ -232,7 +232,73 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Ornate Museum Passepartout Frame
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Museum Passepartout Frame",
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = WarmIvory
+                        )
+                        Text(
+                            text = "Surrounds canvas with gold-leaf frame & warm ivory mat",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MutedSlate
+                        )
+                    }
+                    Switch(
+                        checked = config.museumFrameMatte,
+                        onCheckedChange = { onUpdateConfig(config.copy(museumFrameMatte = it)) },
+                        colors = SwitchDefaults.colors(
+                            checkedThumbColor = DarkObsidian,
+                            checkedTrackColor = ChampagneGold
+                        ),
+                        modifier = Modifier.testTag("switch_museum_frame_matte")
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+                HorizontalDivider(color = DarkBorder)
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Shake Gesture to Shuffle Masterpiece (Mobile & Tablet)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Shake to Shuffle Artwork",
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = WarmIvory
+                        )
+                        Text(
+                            text = "Gently shake phone or tablet to discover a random masterpiece",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MutedSlate
+                        )
+                    }
+                    Switch(
+                        checked = config.shakeToNext,
+                        onCheckedChange = { onUpdateConfig(config.copy(shakeToNext = it)) },
+                        colors = SwitchDefaults.colors(
+                            checkedThumbColor = DarkObsidian,
+                            checkedTrackColor = ChampagneGold
+                        ),
+                        modifier = Modifier.testTag("switch_shake_to_next")
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Ambient Nightstand Clock
@@ -264,7 +330,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Ambient Light Backlight (Philips Ambilight / Samsung Frame Glow)
@@ -335,7 +401,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Ambient Soundscape Selector
@@ -375,7 +441,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Android TV Daydream Info Banner
@@ -414,7 +480,7 @@ fun SettingsDrawer(
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(color = DarkBorder)
+                HorizontalDivider(color = DarkBorder)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // STATIC SECTION: Museum Patronage & Support

@@ -1,5 +1,8 @@
 package com.example
 
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.WindowManager
@@ -13,18 +16,42 @@ import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.common.shake.UniversalShakeDetector
 import com.example.ui.ArtGalleryApp
 import com.example.ui.ArtGalleryViewModel
 import com.example.ui.theme.ArtGalleryTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
     private val viewModel: ArtGalleryViewModel by viewModels()
+    private var sensorManager: SensorManager? = null
+    private var accelerometer: Sensor? = null
+    private val shakeDetector = UniversalShakeDetector {
+        if (!viewModel.isAnyModalOpen && viewModel.config.value.shakeToNext) {
+            viewModel.shuffleArtwork()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as? SensorManager
+        accelerometer = sensorManager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.config.collect { cfg ->
+                    shakeDetector.isEnabled = cfg.shakeToNext
+                    shakeDetector.thresholdGForce = cfg.shakeThresholdG
+                }
+            }
+        }
 
         // Enable immersive sticky fullscreen for authentic digital art frame on Android TV & Tablet Kiosk
         val insetsController = WindowCompat.getInsetsController(window, window.decorView)
@@ -40,14 +67,28 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        accelerometer?.let { sensor ->
+            sensorManager?.registerListener(shakeDetector, sensor, SensorManager.SENSOR_DELAY_UI)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager?.unregisterListener(shakeDetector)
+    }
+
     @Suppress("GestureBackNavigation")
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        viewModel.onUserActivity()
+        if (keyCode != KeyEvent.KEYCODE_DPAD_UP) {
+            viewModel.onUserActivity()
+        }
 
         // When a dialog or modal drawer is open, let Android TV's native focus system navigate
         // buttons, grid items, and chips with the D-Pad remote.
         if (viewModel.isAnyModalOpen) {
-            return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE) {
                 if (viewModel.isCategorySelectionOpen.value) {
                     viewModel.closeCategorySelection()
                     true
@@ -59,6 +100,9 @@ class MainActivity : ComponentActivity() {
                     true
                 } else if (viewModel.isDetailModalOpen.value) {
                     viewModel.closeDetailModal()
+                    true
+                } else if (viewModel.isPatronDialogOpen.value) {
+                    viewModel.closePatronDialog()
                     true
                 } else {
                     super.onKeyDown(keyCode, event)
@@ -86,7 +130,19 @@ class MainActivity : ComponentActivity() {
                 viewModel.togglePlacard()
                 true
             }
-            KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_MENU -> {
+            KeyEvent.KEYCODE_INFO, KeyEvent.KEYCODE_I -> {
+                viewModel.openDetailModal()
+                true
+            }
+            KeyEvent.KEYCODE_C -> {
+                viewModel.openCategorySelection()
+                true
+            }
+            KeyEvent.KEYCODE_G, KeyEvent.KEYCODE_BOOKMARK -> {
+                viewModel.openBrowser()
+                true
+            }
+            KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_MENU, KeyEvent.KEYCODE_S -> {
                 viewModel.openSettings()
                 true
             }

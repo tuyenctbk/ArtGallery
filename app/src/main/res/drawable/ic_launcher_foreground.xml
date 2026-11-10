@@ -1,22 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Outer Frame Gold Accent -->
+
+    <!-- Drop Shadow Behind Frame -->
     <path
-        android:fillColor="#E5C158"
-        android:pathData="M28,28h52v52H28zM33,33v42h42V33H33z" />
-    <!-- Inner Canvas Dark Area -->
+        android:fillColor="#66000000"
+        android:pathData="M26,27h58c1.5,0 2.5,1 2.5,2.5v52c0,1.5 -1,2.5 -2.5,2.5H26c-1.5,0 -2.5,-1 -2.5,-2.5v-52C23.5,28 24.5,27 26,27z" />
+
+    <!-- Outer Ornate Gold Museum Frame -->
+    <path android:pathData="M25,25h58c1.6,0 3,1.4 3,3v50c0,1.6 -1.4,3 -3,3H25c-1.6,0 -3,-1.4 -3,-3V28C22,26.4 23.4,25 25,25z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="22"
+                android:startY="25"
+                android:endX="86"
+                android:endY="81"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FFF6DF96" />
+                <item android:offset="0.35" android:color="#FFE5C158" />
+                <item android:offset="0.7" android:color="#FFB88928" />
+                <item android:offset="1.0" android:color="#FFEAD07A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Frame Bevel Inner Rim -->
     <path
-        android:fillColor="#242834"
-        android:pathData="M35,35h38v38H35z" />
-    <!-- Mountain / Sun Art Design -->
+        android:fillColor="#FF7A5916"
+        android:pathData="M27.5,29.5h53v47h-53z" />
+
+    <!-- Warm Ivory Passepartout Museum Mat -->
     <path
-        android:fillColor="#E5C158"
-        android:pathData="M64,44m-4,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+        android:fillColor="#FFFAF5E6"
+        android:pathData="M29,31h50v44H29z" />
+
+    <!-- Inner Gold Fillet Line -->
     <path
-        android:fillColor="#F4E6C0"
-        android:pathData="M39,67l10,-14l8,10l6,-7l10,11z" />
+        android:fillColor="#FFD4AF37"
+        android:pathData="M31.5,33.5h45v39h-45z" />
+
+    <!-- Painting Canvas Sky (Deep Prussian & Indigo Twilight) -->
+    <path android:pathData="M32.5,34.5h43v37h-43z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="54"
+                android:startY="34.5"
+                android:endX="54"
+                android:endY="71.5"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF16284C" />
+                <item android:offset="0.55" android:color="#FF24466E" />
+                <item android:offset="1.0" android:color="#FF3B698C" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Swirling Starry Halo / Sun (Van Gogh & Impressionist Motif) -->
+    <path
+        android:fillColor="#44F6DF96"
+        android:pathData="M64,44.5m-7.5,0a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0" />
+    <path
+        android:fillColor="#88F2CA52"
+        android:pathData="M64,44.5m-5.2,0a5.2,5.2 0,1 0,10.4 0a5.2,5.2 0,1 0,-10.4 0" />
+    <path
+        android:fillColor="#FFFFF3C4"
+        android:pathData="M64,44.5m-3.2,0a3.2,3.2 0,1 0,6.4 0a3.2,3.2 0,1 0,-6.4 0" />
+
+    <!-- Swirling Wind Brushstroke -->
+    <path
+        android:fillColor="#5590C2E7"
+        android:pathData="M35,43 C41,39 47,45 53,41 C56,39 58,40 56,42 C50,47 42,42 35,45 Z" />
+
+    <!-- Distant Golden-Teal Mountains -->
+    <path
+        android:fillColor="#FF2E5A6B"
+        android:pathData="M32.5,71.5 L32.5,58 L44,47 L56,59 L66,50 L75.5,60 L75.5,71.5 Z" />
+
+    <!-- Foreground Sunlit Hills & Cypress Silhouette -->
+    <path
+        android:fillColor="#FFD9A74A"
+        android:pathData="M32.5,71.5 L43,57 L53,66 L64,54 L75.5,67 L75.5,71.5 Z" />
+    <path
+        android:fillColor="#FF1B3028"
+        android:pathData="M38,71.5 C37,62 39,52 41,44 C43,52 44,62 43,71.5 Z" />
+
+    <!-- Museum Brass Placard Below Frame -->
+    <path
+        android:fillColor="#FFE5C158"
+        android:pathData="M46,83.5h16c0.8,0 1.5,0.7 1.5,1.5v1.5c0,0.8 -0.7,1.5 -1.5,1.5H46c-0.8,0 -1.5,-0.7 -1.5,-1.5V85C44.5,84.2 45.2,83.5 46,83.5z" />
 </vector>
