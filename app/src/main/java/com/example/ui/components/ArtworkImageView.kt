@@ -9,13 +9,13 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,11 +30,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -47,11 +49,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.isSpecified
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
@@ -73,7 +73,6 @@ import com.example.ui.theme.MutedSlate
 import com.example.ui.theme.SurfaceGlass
 import com.example.ui.theme.WarmIvory
 import com.example.ui.util.AmbientLightExtractor
-import com.example.ui.util.AmbientPalette
 import kotlin.math.roundToInt
 
 @Composable
@@ -83,6 +82,9 @@ fun ArtworkImageView(
     ambientBacklight: Boolean = true,
     ambientGlowIntensity: Float = 0.75f,
     museumFrameMatte: Boolean = true,
+    isLoading: Boolean = false,
+    isFavoritesCategory: Boolean = false,
+    onRetryClick: () -> Unit = {},
     onExploreClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -278,13 +280,12 @@ fun ArtworkImageView(
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(if (isCompact) 320.dp else 440.dp),
+                                    .height(if (isCompact) 320.dp else 440.dp)
+                                    .clip(RoundedCornerShape(10.dp))
+                                    .background(SurfaceGlass)
+                                    .border(1.dp, GoldLeafBorder, RoundedCornerShape(10.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                ProceduralMasterpieceCanvas(
-                                    artwork = currentArt,
-                                    palette = currentPalette
-                                )
                                 CircularProgressIndicator(
                                     color = ChampagneGold,
                                     strokeWidth = 2.5.dp,
@@ -296,20 +297,48 @@ fun ArtworkImageView(
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(if (isCompact) 320.dp else 440.dp),
+                                    .height(if (isCompact) 320.dp else 440.dp)
+                                    .clip(RoundedCornerShape(10.dp))
+                                    .background(SurfaceGlass)
+                                    .border(1.dp, GoldLeafBorder, RoundedCornerShape(10.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                ProceduralMasterpieceCanvas(
-                                    artwork = currentArt,
-                                    palette = currentPalette
-                                )
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center,
+                                    modifier = Modifier.padding(24.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Collections,
+                                        contentDescription = null,
+                                        tint = ChampagneGold,
+                                        modifier = Modifier.size(42.dp)
+                                    )
+                                    Spacer(modifier = Modifier.height(10.dp))
+                                    Text(
+                                        text = currentArt.title,
+                                        style = MaterialTheme.typography.titleMedium.copy(
+                                            fontFamily = FontFamily.Serif,
+                                            fontWeight = FontWeight.Bold
+                                        ),
+                                        color = WarmIvory,
+                                        textAlign = TextAlign.Center
+                                    )
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(
+                                        text = currentArt.artistDisplayName,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MutedSlate,
+                                        textAlign = TextAlign.Center
+                                    )
+                                }
                             }
                         }
                     )
                 }
             }
         } else {
-            // Empty State (e.g. Empty Private Gallery)
+            // Loading or Empty State
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -325,138 +354,176 @@ fun ArtworkImageView(
                         .border(1.5.dp, GoldLeafBorder, RoundedCornerShape(24.dp))
                         .padding(horizontal = if (isCompact) 24.dp else 40.dp, vertical = 32.dp)
                 ) {
-                    Box(
-                        modifier = Modifier
-                            .size(72.dp)
-                            .clip(CircleShape)
-                            .background(DarkObsidian)
-                            .border(1.dp, ChampagneGold, CircleShape),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.FavoriteBorder,
-                            contentDescription = "Empty Private Gallery",
-                            tint = ChampagneGold,
-                            modifier = Modifier.size(36.dp)
+                    if (isLoading) {
+                        CircularProgressIndicator(
+                            color = ChampagneGold,
+                            strokeWidth = 3.dp,
+                            modifier = Modifier.size(56.dp)
                         )
-                    }
-
-                    Spacer(modifier = Modifier.height(18.dp))
-
-                    Text(
-                        text = "Your Private Gallery is Empty",
-                        style = MaterialTheme.typography.headlineMedium.copy(
-                            fontFamily = FontFamily.Serif,
-                            fontWeight = FontWeight.Bold
-                        ),
-                        color = ChampagneGold,
-                        textAlign = TextAlign.Center
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(
-                        text = "Mark masterworks as favorite while browsing to curate your personal museum collection.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MutedSlate,
-                        textAlign = TextAlign.Center
-                    )
-
-                    Spacer(modifier = Modifier.height(24.dp))
-
-                    Button(
-                        onClick = onExploreClick,
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = ChampagneGold,
-                            contentColor = DarkObsidian
-                        ),
-                        shape = RoundedCornerShape(12.dp),
-                        modifier = Modifier.testTag("empty_explore_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Collections,
-                            contentDescription = null,
-                            tint = DarkObsidian,
-                            modifier = Modifier.size(18.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
+                        Spacer(modifier = Modifier.height(20.dp))
                         Text(
-                            text = "Explore Met Collection",
-                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
+                            text = "Curating Collection from The Met",
+                            style = MaterialTheme.typography.headlineSmall.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            color = ChampagneGold,
+                            textAlign = TextAlign.Center
                         )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Fetching live public-domain masterworks from The Metropolitan Museum of Art Open Access API...",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MutedSlate,
+                            textAlign = TextAlign.Center
+                        )
+                    } else if (isFavoritesCategory) {
+                        Box(
+                            modifier = Modifier
+                                .size(72.dp)
+                                .clip(CircleShape)
+                                .background(DarkObsidian)
+                                .border(1.dp, ChampagneGold, CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.FavoriteBorder,
+                                contentDescription = "Empty Private Gallery",
+                                tint = ChampagneGold,
+                                modifier = Modifier.size(36.dp)
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(18.dp))
+
+                        Text(
+                            text = "Your Private Gallery is Empty",
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            color = ChampagneGold,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Text(
+                            text = "Mark masterworks as favorite while browsing to curate your personal museum collection.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MutedSlate,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        Button(
+                            onClick = onExploreClick,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = ChampagneGold,
+                                contentColor = DarkObsidian
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.testTag("empty_explore_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Collections,
+                                contentDescription = null,
+                                tint = DarkObsidian,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Explore Met Collection",
+                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
+                            )
+                        }
+                    } else {
+                        Box(
+                            modifier = Modifier
+                                .size(72.dp)
+                                .clip(CircleShape)
+                                .background(DarkObsidian)
+                                .border(1.dp, ChampagneGold, CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Collections,
+                                contentDescription = "No Artworks Loaded",
+                                tint = ChampagneGold,
+                                modifier = Modifier.size(36.dp)
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(18.dp))
+
+                        Text(
+                            text = "No Artworks Loaded",
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            color = ChampagneGold,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Text(
+                            text = "Connect to the internet to load live public-domain artworks from The Metropolitan Museum of Art Open Access API.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MutedSlate,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Spacer(modifier = Modifier.height(24.dp))
+
+                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Button(
+                                onClick = onRetryClick,
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = ChampagneGold,
+                                    contentColor = DarkObsidian
+                                ),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.testTag("retry_fetch_button")
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Refresh,
+                                    contentDescription = null,
+                                    tint = DarkObsidian,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = "Retry Connection",
+                                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
+                                )
+                            }
+
+                            OutlinedButton(
+                                onClick = onExploreClick,
+                                colors = ButtonDefaults.outlinedButtonColors(contentColor = WarmIvory),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, GoldLeafBorder),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.testTag("empty_explore_button")
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Collections,
+                                    contentDescription = null,
+                                    tint = ChampagneGold,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = "Categories",
+                                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
+                                )
+                            }
+                        }
                     }
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun ProceduralMasterpieceCanvas(
-    artwork: Artwork,
-    palette: AmbientPalette
-) {
-    Canvas(
-        modifier = Modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(8.dp))
-    ) {
-        val w = size.width
-        val h = size.height
-
-        drawRect(
-            brush = Brush.verticalGradient(
-                colors = listOf(
-                    palette.secondaryColor,
-                    palette.dominantColor,
-                    palette.secondaryColor.copy(alpha = 0.9f)
-                )
-            )
-        )
-
-        val sunCenter = Offset(w * 0.72f, h * 0.28f)
-        drawCircle(
-            color = palette.glowColor.copy(alpha = 0.25f),
-            radius = minOf(w, h) * 0.24f,
-            center = sunCenter
-        )
-        drawCircle(
-            color = palette.glowColor.copy(alpha = 0.5f),
-            radius = minOf(w, h) * 0.14f,
-            center = sunCenter
-        )
-        drawCircle(
-            color = Color(0xFFFFF3C4).copy(alpha = 0.88f),
-            radius = minOf(w, h) * 0.065f,
-            center = sunCenter
-        )
-
-        val mountainPath = Path().apply {
-            moveTo(0f, h * 0.72f)
-            lineTo(w * 0.22f, h * 0.46f)
-            lineTo(w * 0.45f, h * 0.62f)
-            lineTo(w * 0.68f, h * 0.42f)
-            lineTo(w, h * 0.65f)
-            lineTo(w, h)
-            lineTo(0f, h)
-            close()
-        }
-        drawPath(
-            path = mountainPath,
-            color = palette.dominantColor.copy(alpha = 0.75f)
-        )
-
-        val hillsPath = Path().apply {
-            moveTo(0f, h * 0.82f)
-            quadraticTo(w * 0.28f, h * 0.64f, w * 0.55f, h * 0.78f)
-            quadraticTo(w * 0.80f, h * 0.88f, w, h * 0.72f)
-            lineTo(w, h)
-            lineTo(0f, h)
-            close()
-        }
-        drawPath(
-            path = hillsPath,
-            color = palette.glowColor.copy(alpha = 0.35f)
-        )
     }
 }

@@ -119,51 +119,6 @@ object AmbientLightExtractor {
     }
 
     fun getFallbackPalette(artwork: Artwork?): AmbientPalette {
-        if (artwork == null) return AmbientPalette()
-        val text = (artwork.title + " " + artwork.medium + " " + artwork.department).lowercase()
-        return when {
-            text.contains("cypresses") || text.contains("sunflowers") || text.contains("gogh") -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF6B5822),
-                    secondaryColor = Color(0xFF2C394B),
-                    glowColor = Color(0xFFD4A338)
-                )
-            }
-            text.contains("water lily") || text.contains("monet") || text.contains("pond") -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF24463C),
-                    secondaryColor = Color(0xFF1E2E40),
-                    glowColor = Color(0xFF488B77)
-                )
-            }
-            text.contains("wave") || text.contains("hokusai") || text.contains("japanese") -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF1B324B),
-                    secondaryColor = Color(0xFF17202A),
-                    glowColor = Color(0xFF3B6B9B)
-                )
-            }
-            text.contains("sargent") || text.contains("madame") -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF3A2426),
-                    secondaryColor = Color(0xFF1B181E),
-                    glowColor = Color(0xFF8B424A)
-                )
-            }
-            text.contains("rembrandt") || text.contains("vermeer") || text.contains("dutch") -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF42311E),
-                    secondaryColor = Color(0xFF1C1712),
-                    glowColor = Color(0xFF9E773A)
-                )
-            }
-            else -> {
-                AmbientPalette(
-                    dominantColor = Color(0xFF2D3545),
-                    secondaryColor = Color(0xFF161A24),
-                    glowColor = Color(0xFFCBB064)
-                )
-            }
-        }
+        return AmbientPalette()
     }
 }

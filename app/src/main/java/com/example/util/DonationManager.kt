@@ -105,10 +105,11 @@ class DonationManager(
             .setProductList(productList)
             .build()
 
-        billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
+        billingClient.queryProductDetailsAsync(params) { billingResult, queryProductDetailsResult ->
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                _productDetailsList.value = productDetailsList
-                Log.d(TAG, "Queried ${productDetailsList.size} product details")
+                val detailsList = queryProductDetailsResult.productDetailsList
+                _productDetailsList.value = detailsList
+                Log.d(TAG, "Queried ${detailsList.size} product details")
             } else {
                 Log.w(TAG, "Failed to query products: ${billingResult.debugMessage}")
             }
@@ -124,9 +125,7 @@ class DonationManager(
         val productDetails = _productDetailsList.value.find { it.productId == productId }
         if (productDetails == null) {
             Log.w(TAG, "ProductDetails not found for $productId")
-            // Fallback for simulation / direct patron activation when play store is unavailable
-            onPatronPurchased(productId)
-            return true
+            return false
         }
 
         val productDetailsParamsList = listOf(

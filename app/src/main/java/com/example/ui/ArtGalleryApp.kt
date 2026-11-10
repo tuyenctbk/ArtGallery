@@ -45,6 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.data.model.CategoryType
 import com.example.ui.components.AmbientClockOverlay
 import com.example.ui.components.ArtGallerySplashScreen
 import com.example.ui.components.ArtworkDetailsModal
@@ -82,6 +83,9 @@ fun ArtGalleryApp(
     val patronTier by viewModel.patronTier.collectAsState()
     val isLoadingCategory by viewModel.isLoadingCategory.collectAsState()
     val activeCategory by viewModel.activeCategory.collectAsState()
+    val categories by viewModel.categoriesFlow.collectAsState()
+    val productDetailsList by viewModel.donationManager.productDetailsList.collectAsState()
+    val departmentNames = remember(categories) { categories.map { it.title } }
 
     var showSplash by remember { mutableStateOf(!isDreamService) }
 
@@ -152,6 +156,9 @@ fun ArtGalleryApp(
             ambientBacklight = config.ambientBacklight,
             ambientGlowIntensity = config.ambientGlowIntensity,
             museumFrameMatte = config.museumFrameMatte,
+            isLoading = isLoadingCategory,
+            isFavoritesCategory = activeCategory.categoryType == CategoryType.FAVORITES,
+            onRetryClick = { viewModel.retryFetchCurrentCategory() },
             onExploreClick = { viewModel.openCategorySelection() }
         )
 
@@ -181,7 +188,7 @@ fun ArtGalleryApp(
             totalCount = artworks.size,
             isFavorite = currentArtwork?.let { viewModel.isFavorite(it.id) } ?: false,
             currentDepartment = activeCategory.title,
-            departments = viewModel.departments,
+            departments = departmentNames,
             currentSoundscape = config.soundscape,
             isDeskStandMode = config.deskStandMode,
             onTogglePlayPause = { viewModel.togglePlayPause() },
@@ -261,7 +268,7 @@ fun ArtGalleryApp(
         // Department & Art Movement Selection Screen Dialog
         if (isCategorySelectionOpen) {
             CategorySelectionDialog(
-                categories = viewModel.museumCategories,
+                categories = categories,
                 activeCategory = activeCategory,
                 onSelectCategory = { viewModel.selectCategory(it) },
                 onClose = { viewModel.closeCategorySelection() }
@@ -272,7 +279,7 @@ fun ArtGalleryApp(
         if (isSettingsOpen) {
             SettingsDrawer(
                 config = config,
-                departments = viewModel.departments,
+                departments = departmentNames,
                 isPatron = isPatron,
                 patronTier = patronTier,
                 onBecomePatron = { viewModel.becomePatron(it) },
@@ -282,18 +289,16 @@ fun ArtGalleryApp(
             )
         }
 
-        // Multi-Channel Support & Patronage Dialog (Google Play, PayPal & QR, Ko-fi)
+        // Support & Patronage Dialog (Google Play Billing)
         if (isPatronDialogOpen) {
             val activity = androidx.activity.compose.LocalActivity.current
             SupportPatronDialog(
                 isPatron = isPatron,
                 patronTier = patronTier,
-                onBecomePatron = { viewModel.becomePatron(it) },
+                productDetailsList = productDetailsList,
                 onLaunchBilling = { sku ->
                     if (activity != null) {
                         viewModel.donationManager.launchBillingFlow(activity, sku)
-                    } else {
-                        viewModel.becomePatron(sku)
                     }
                 },
                 onClose = { viewModel.closePatronDialog() }
@@ -363,11 +368,11 @@ fun ArtGalleryApp(
         if (isBrowserOpen) {
             GalleryBrowserDialog(
                 artworks = artworks,
-                departments = viewModel.departments,
+                departments = departmentNames,
                 currentDepartment = activeCategory.title,
                 currentIndex = currentIndex,
                 onSelectDepartment = { name ->
-                    viewModel.museumCategories.find { it.title == name }?.let { cat ->
+                    categories.find { it.title == name }?.let { cat ->
                         viewModel.selectCategory(cat)
                     }
                 },

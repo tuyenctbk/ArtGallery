@@ -23,4 +23,13 @@ interface FavoriteArtworkDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorite_artworks WHERE id = :id)")
     suspend fun isFavorite(id: Int): Boolean
+
+    @Query("SELECT * FROM cached_artworks WHERE categoryId = :categoryId ORDER BY cachedTimestamp DESC")
+    suspend fun getCachedArtworksByCategory(categoryId: String): List<CachedArtworkEntity>
+
+    @Query("SELECT * FROM cached_artworks ORDER BY cachedTimestamp DESC LIMIT 40")
+    suspend fun getAllCachedArtworks(): List<CachedArtworkEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCachedArtworks(artworks: List<CachedArtworkEntity>)
 }

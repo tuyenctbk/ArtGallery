@@ -67,3 +67,71 @@ data class FavoriteArtworkEntity(
         }
     }
 }
+
+@Entity(tableName = "cached_artworks")
+data class CachedArtworkEntity(
+    @PrimaryKey val id: Int,
+    val categoryId: String,
+    val title: String,
+    val artistDisplayName: String,
+    val artistDisplayBio: String = "",
+    val objectDate: String = "",
+    val medium: String = "",
+    val dimensions: String = "",
+    val department: String = "",
+    val creditLine: String = "",
+    val accessionNumber: String = "",
+    val imageUrl: String,
+    val thumbnailUrl: String = "",
+    val culture: String = "",
+    val period: String = "",
+    val isHighlight: Boolean = true,
+    val description: String = "",
+    val cachedTimestamp: Long = System.currentTimeMillis()
+) {
+    fun toArtwork(isFavorite: Boolean = false): Artwork {
+        return Artwork(
+            id = id,
+            title = title,
+            artistDisplayName = artistDisplayName,
+            artistDisplayBio = artistDisplayBio,
+            objectDate = objectDate,
+            medium = medium,
+            dimensions = dimensions,
+            department = department,
+            creditLine = creditLine,
+            accessionNumber = accessionNumber,
+            imageUrl = imageUrl,
+            thumbnailUrl = if (thumbnailUrl.isNotEmpty()) thumbnailUrl else imageUrl,
+            culture = culture,
+            period = period,
+            isHighlight = isHighlight,
+            isFavorite = isFavorite,
+            description = description
+        )
+    }
+
+    companion object {
+        fun fromArtwork(art: Artwork, categoryId: String): CachedArtworkEntity {
+            return CachedArtworkEntity(
+                id = art.id,
+                categoryId = categoryId,
+                title = art.title,
+                artistDisplayName = art.artistDisplayName,
+                artistDisplayBio = art.artistDisplayBio,
+                objectDate = art.objectDate,
+                medium = art.medium,
+                dimensions = art.dimensions,
+                department = art.department,
+                creditLine = art.creditLine,
+                accessionNumber = art.accessionNumber,
+                imageUrl = art.imageUrl,
+                thumbnailUrl = art.thumbnailUrl,
+                culture = art.culture,
+                period = art.period,
+                isHighlight = art.isHighlight,
+                description = art.description
+            )
+        }
+    }
+}

@@ -5,7 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [FavoriteArtworkEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [FavoriteArtworkEntity::class, CachedArtworkEntity::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class ArtGalleryDatabase : RoomDatabase() {
 
     abstract fun favoriteArtworkDao(): FavoriteArtworkDao
@@ -20,7 +24,9 @@ abstract class ArtGalleryDatabase : RoomDatabase() {
                     context.applicationContext,
                     ArtGalleryDatabase::class.java,
                     "art_gallery_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration(dropAllTables = true)
+                    .build()
                 INSTANCE = instance
                 instance
             }

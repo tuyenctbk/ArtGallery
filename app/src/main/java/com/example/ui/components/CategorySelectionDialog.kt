@@ -224,15 +224,31 @@ fun CategorySelectionDialog(
                                         .background(DarkObsidian),
                                     contentAlignment = Alignment.TopEnd
                                 ) {
-                                    AsyncImage(
-                                        model = ImageRequest.Builder(LocalContext.current)
-                                            .data(category.thumbnailUrl)
-                                            .crossfade(true)
-                                            .build(),
-                                        contentDescription = category.title,
-                                        contentScale = ContentScale.Crop,
-                                        modifier = Modifier.fillMaxSize()
-                                    )
+                                    if (category.thumbnailUrl.isNotEmpty()) {
+                                        AsyncImage(
+                                            model = ImageRequest.Builder(LocalContext.current)
+                                                .data(category.thumbnailUrl)
+                                                .crossfade(true)
+                                                .build(),
+                                            contentDescription = category.title,
+                                            contentScale = ContentScale.Crop,
+                                            modifier = Modifier.fillMaxSize()
+                                        )
+                                    } else {
+                                        Box(
+                                            modifier = Modifier
+                                                .fillMaxSize()
+                                                .background(SurfaceGlass),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.Palette,
+                                                contentDescription = null,
+                                                tint = ChampagneGold.copy(alpha = 0.45f),
+                                                modifier = Modifier.size(44.dp)
+                                            )
+                                        }
+                                    }
                                     if (isActive) {
                                         Box(
                                             modifier = Modifier

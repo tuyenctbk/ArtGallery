@@ -27,16 +27,18 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
         becomePatron(tier)
     }
 
-    val museumCategories: List<MuseumCategory> = repository.museumCategories
+    private val _categories = MutableStateFlow<List<MuseumCategory>>(repository.baseCategories)
+    val categoriesFlow: StateFlow<List<MuseumCategory>> = _categories.asStateFlow()
+    val museumCategories: List<MuseumCategory>
+        get() = _categories.value
 
-    private val _activeCategory = MutableStateFlow(museumCategories.first())
+    private val _activeCategory = MutableStateFlow(repository.baseCategories.first())
     val activeCategory: StateFlow<MuseumCategory> = _activeCategory.asStateFlow()
 
     private val _config = MutableStateFlow(SlideshowConfig(activeCategory = _activeCategory.value))
     val config: StateFlow<SlideshowConfig> = _config.asStateFlow()
 
-    // Immediately populate with curatedMasterpieces so the canvas is never empty at launch
-    private val _artworks = MutableStateFlow<List<Artwork>>(repository.curatedMasterpieces)
+    private val _artworks = MutableStateFlow<List<Artwork>>(emptyList())
     val artworks: StateFlow<List<Artwork>> = _artworks.asStateFlow()
 
     private val _favoriteIds = MutableStateFlow<Set<Int>>(emptySet())
@@ -74,7 +76,7 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
     val slideCount: StateFlow<Int> = repository.slideCount
     val hasDismissedMilestone: StateFlow<Boolean> = repository.hasDismissedMilestone
 
-    private val _isLoadingCategory = MutableStateFlow(false)
+    private val _isLoadingCategory = MutableStateFlow(true)
     val isLoadingCategory: StateFlow<Boolean> = _isLoadingCategory.asStateFlow()
 
     private val _searchQuery = MutableStateFlow("")
@@ -83,12 +85,21 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
     val isAnyModalOpen: Boolean
         get() = _isCategorySelectionOpen.value || _isSettingsOpen.value || _isBrowserOpen.value || _isDetailModalOpen.value || _isPatronDialogOpen.value
 
-    val departments: List<String> = repository.museumCategories.map { it.title }
+    val departments: List<String>
+        get() = _categories.value.map { it.title }
 
     private var timerJob: Job? = null
     private var placardTimeoutJob: Job? = null
 
     init {
+        // Fetch live Met Museum departments
+        viewModelScope.launch {
+            val allCats = repository.fetchDepartmentsFromMetApi()
+            if (allCats.isNotEmpty()) {
+                _categories.value = allCats
+            }
+        }
+
         // Observe Room favorite IDs for reactive updates across the entire app
         viewModelScope.launch {
             repository.favoriteIds.collectLatest { favSet ->
@@ -99,33 +110,69 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
             }
         }
 
-        // Observe active category: display local curated works immediately, then enrich from Met API
+        // Observe active category: display cached API records if available, then fetch live from Met API
         viewModelScope.launch {
             _activeCategory.collectLatest { cat ->
-                val immediateList = repository.getArtworksForCategory(cat)
-                _artworks.value = immediateList
-                if (_currentIndex.value >= _artworks.value.size) {
-                    _currentIndex.value = 0
-                }
-                resetSlideshowTimer()
-
-                if (cat.categoryType != CategoryType.FAVORITES) {
-                    _isLoadingCategory.value = true
-                    val enrichedList = repository.fetchArtworksFromMetApi(cat)
-                    if (enrichedList.isNotEmpty()) {
-                        _artworks.value = enrichedList
-                        if (_currentIndex.value >= _artworks.value.size) {
-                            _currentIndex.value = 0
-                        }
-                    }
-                    _isLoadingCategory.value = false
-                }
+                loadCategoryArtworks(cat)
             }
         }
 
         startSlideshowTimer()
         resetPlacardTimer()
         donationManager.startConnection()
+    }
+
+    private suspend fun loadCategoryArtworks(cat: MuseumCategory) {
+        _isLoadingCategory.value = true
+        val cachedList = repository.getCachedArtworksForCategory(cat)
+        if (cachedList.isNotEmpty()) {
+            _artworks.value = cachedList
+            if (_currentIndex.value >= _artworks.value.size) {
+                _currentIndex.value = 0
+            }
+            updateCategoryThumbnails(cat, cachedList)
+        } else {
+            _artworks.value = emptyList()
+            _currentIndex.value = 0
+        }
+        resetSlideshowTimer()
+
+        if (cat.categoryType != CategoryType.FAVORITES) {
+            val liveList = repository.fetchArtworksFromMetApi(cat)
+            if (liveList.isNotEmpty()) {
+                _artworks.value = liveList
+                if (_currentIndex.value >= _artworks.value.size) {
+                    _currentIndex.value = 0
+                }
+                updateCategoryThumbnails(cat, liveList)
+            }
+        }
+        _isLoadingCategory.value = false
+    }
+
+    private fun updateCategoryThumbnails(activeCat: MuseumCategory, loadedArtworks: List<Artwork>) {
+        if (loadedArtworks.isEmpty()) return
+        val firstThumb = loadedArtworks.first().thumbnailUrl
+        _categories.value = _categories.value.map { cat ->
+            when {
+                cat.id == activeCat.id && cat.thumbnailUrl.isEmpty() ->
+                    cat.copy(thumbnailUrl = firstThumb)
+                cat.thumbnailUrl.isEmpty() -> {
+                    val match = loadedArtworks.firstOrNull { art ->
+                        (cat.categoryType == CategoryType.DEPARTMENT && art.department.equals(cat.title, ignoreCase = true)) ||
+                                (cat.categoryType == CategoryType.MOVEMENT && (art.period.contains(cat.query, ignoreCase = true) || art.medium.contains(cat.query, ignoreCase = true)))
+                    }
+                    if (match != null) cat.copy(thumbnailUrl = match.thumbnailUrl) else cat
+                }
+                else -> cat
+            }
+        }
+    }
+
+    fun retryFetchCurrentCategory() {
+        viewModelScope.launch {
+            loadCategoryArtworks(_activeCategory.value)
+        }
     }
 
     private fun startSlideshowTimer() {
@@ -247,13 +294,13 @@ class ArtGalleryViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun toggleFavorite(artworkId: Int) {
-        val targetArtwork = _artworks.value.find { it.id == artworkId }
-            ?: repository.curatedMasterpieces.find { it.id == artworkId }
-            ?: return
         viewModelScope.launch {
+            val targetArtwork = _artworks.value.find { it.id == artworkId }
+                ?: repository.fetchMetMuseumObjectDetails(artworkId)
+                ?: return@launch
             repository.toggleFavorite(targetArtwork)
             if (_activeCategory.value.id == "favorites") {
-                val list = repository.getArtworksForCategory(_activeCategory.value)
+                val list = repository.getCachedArtworksForCategory(_activeCategory.value)
                 _artworks.value = list
                 if (_currentIndex.value >= _artworks.value.size) {
                     _currentIndex.value = 0
