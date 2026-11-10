@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">تحف فنية عامة 4K CC0 • شاشة توقف هادئة للتلفاز والمكتب</string>
+    <string name="splash_loading">جارٍ فتح المعرض المختار…</string>
+    <string name="kiosk_brand_subtitle">متحف المتروبوليتان • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">العمل السابق</string>
+    <string name="control_next">العمل التالي</string>
+    <string name="control_play">تشغيل العرض</string>
+    <string name="control_pause">إيقاف مؤقت</string>
+    <string name="control_browse">استعراض المعرض</string>
+    <string name="control_settings">الإعدادات</string>
+    <string name="control_desk_stand">وضع الحامل المكتبي</string>
+    <string name="control_soundscapes">المؤثرات الصوتية الطبيعية</string>
+    <string name="control_departments">الأقسام والحركات الفنية</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">إضافة إلى المفضلة</string>
+    <string name="placard_fav_remove">إزالة من المفضلة</string>
+    <string name="placard_details">تفاصيل العمل الفني</string>
+    <string name="met_accession">رقم الحفظ: %1$s</string>
+    <string name="loading_category">جارٍ تحميل %1$s من متحف المتروبوليتان…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">السجل التوثيقي للعمل</string>
+    <string name="details_close">إغلاق التفاصيل</string>
+    <string name="details_label_date">التاريخ</string>
+    <string name="details_label_medium">الوسيط / الخامة</string>
+    <string name="details_label_dimensions">الأبعاد</string>
+    <string name="details_label_department">القسم</string>
+    <string name="details_label_culture">الثقافة / الحقبة</string>
+    <string name="details_label_credit">مصدر الاقتناء</string>
+    <string name="details_label_accession">الرقم التعريفي</string>
+    <string name="details_curatorial_overview">نظرة نقدية وتاريخية</string>
+    <string name="details_saved_private">محفوظ في المعرض الخاص</string>
+    <string name="details_add_private">إضافة إلى المعرض الخاص</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">الأقسام والحركات الفنية</string>
+    <string name="category_dialog_subtitle">تصفية العرض حسب مجموعات متحف المتروبوليتان</string>
+    <string name="category_close">إغلاق شاشة الاختيار</string>
+    <string name="category_all">جميع الفئات</string>
+    <string name="category_movements">الحركات الفنية</string>
+    <string name="category_departments">أقسام المتحف</string>
+    <string name="category_favorites">المعرض الخاص</string>
+    <string name="category_badge_active">نشط</string>
+    <string name="category_badge_movement">حركة فنية</string>
+    <string name="category_badge_department">قسم بالمتحف</string>
+    <string name="category_badge_favorites">معرض خاص</string>
+    <string name="category_badge_collection">المجموعة كاملة</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">دليل متحف المتروبوليتان للفنون</string>
+    <string name="browser_subtitle">تصفح روائع الملكية العامة CC0 (%1$d عملاً فنياً)</string>
+    <string name="browser_close">إغلاق الدليل</string>
+    <string name="browser_search_placeholder">البحث عن عنوان العمل أو الفنان…</string>
+    <string name="browser_search_desc">بحث</string>
+    <string name="browser_empty">لم يتم العثور على أعمال مطابقة لـ \"%1$s\"</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">إعدادات الإطار وشاشة العرض</string>
+    <string name="settings_subtitle">تخصيص تجربة التلفاز والحامل المكتبي</string>
+    <string name="settings_close">إغلاق الإعدادات</string>
+    <string name="settings_interval_title">فترة تبديل اللوحات</string>
+    <string name="settings_interval_10s">10 ثوانٍ</string>
+    <string name="settings_interval_15s">15 ثانية</string>
+    <string name="settings_interval_30s">30 ثانية</string>
+    <string name="settings_interval_1m">دقيقة واحدة</string>
+    <string name="settings_interval_3m">3 دقائق</string>
+    <string name="settings_interval_5m">5 دقائق</string>
+    <string name="settings_interval_10m">10 دقائق</string>
+
+    <string name="settings_autohide_title">الإخفاء التلقائي لبطاقة اللوحة</string>
+    <string name="settings_autohide_desc">إخفاء بطاقة العمل تلقائياً بعد 5 ثوانٍ</string>
+    <string name="settings_autohide_sub">المس الشاشة أو اضغط أي زر بجهاز التحكم لإظهارها</string>
+
+    <string name="settings_kenburns_title">تأثير كين بيرنز (تقريب بطيء)</string>
+    <string name="settings_kenburns_desc">تحريك انسيابي وتقريب فني هادئ على تفاصيل اللوحات</string>
+
+    <string name="settings_clock_title">عرض الساعة على المكتب</string>
+    <string name="settings_clock_desc">عرض ساعة رقمية أنيقة مع التاريخ أثناء التثبيت على الحامل</string>
+
+    <string name="settings_backlight_title">الإضاءة المحيطية الخلفية</string>
+    <string name="settings_backlight_desc">تحليل ألوان اللوحة ونشر توهج هادئ في الغرفة</string>
+    <string name="settings_glow_intensity">شدة التوهج الضوئي</string>
+    <string name="settings_glow_subtle">خافت (35%)</string>
+    <string name="settings_glow_balanced">متوازن (65%)</string>
+    <string name="settings_glow_vivid">واضح (100%)</string>
+
+    <string name="settings_soundscapes_title">المؤثرات الصوتية الطبيعية</string>
+
+    <string name="settings_daydream_title">الاندماج مع شاشة توقف Android TV</string>
+    <string name="settings_daydream_desc">لتعيين ArtGallery TV كشاشة توقف افتراضية:\nاذهب إلى إعدادات التلفاز ← تفضيلات الجهاز ← شاشة التوقف ← اختر \'ArtGallery TV\'.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">رعاية المتحف والفنون</string>
+    <string name="patron_header_subtitle">ادعم استمرار عرض الروائع بدون إعلانات</string>
+    <string name="patron_close">إغلاق</string>
+    <string name="patron_active_badge">راعٍ نشط لمعرض الفنون (%1$s)</string>
+    <string name="patron_thank_you">شكراً جزيلاً لدعمكم الكريم! يستمر ArtGallery TV خاوياً تماماً من الإعلانات بفضل عشاق الفن مثلكم.</string>
+    <string name="patron_value_statement">يقدم ArtGallery TV روائع الفن العالمي في صالونكم ومكتبكم دون إعلانات أو تتبع للبيانات الشخصية.</string>
+    <string name="patron_google_play_tiers">فئات دعم Google Play (دفعة لمرة واحدة)</string>
+    <string name="patron_tier_apprentice">مبتدئ المعرض</string>
+    <string name="patron_tier_supporter">محب الفنون</string>
+    <string name="patron_tier_connoisseur">خبير التذوق الفني</string>
+    <string name="patron_tier_benefactor">راعي المتحف الفخري</string>
+    <string name="patron_btn_become">كن راعياً عبر Google Play (%1$s)</string>
+    <string name="patron_success_toast">تم تأكيد الرعاية بنجاح! شكراً لدعمك الفنون الجميلة.</string>
+    <string name="patron_success_msg">شكراً لك! تم تسجيلك كراعٍ معتمد للمتحف (%1$s).</string>
+
+    <string name="patron_alt_channels">طرق دعم بديلة</string>
+    <string name="patron_paypal_show">PayPal ورمز الاستجابة</string>
+    <string name="patron_paypal_hide">إخفاء PayPal</string>
+    <string name="patron_kofi_btn">دعم عبر Ko-fi</string>
+    <string name="patron_paypal_title">تحويل مباشر عبر PayPal</string>
+    <string name="patron_paypal_scan_prompt">امسح الرمز بهاتفك أو افتح الرابط المباشر:</string>
+    <string name="patron_copy_link">نسخ الرابط</string>
+    <string name="patron_open_web">فتح الموقع</string>
+    <string name="patron_toast_paypal_copied">تم نسخ رابط PayPal إلى الحافظة!</string>
+    <string name="patron_toast_kofi_copied">تم نسخ الرابط إلى الحافظة: %1$s</string>
+    <string name="patron_privacy_note">ضمان الخصوصية: يعمل بنسبة 100% دون اتصال بالإنترنت ودون جمع لأي بيانات شخصية.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">هل تستمتع باللوحات؟ ساعدنا في الحفاظ عليها بلا إعلانات</string>
+    <string name="milestone_banner_support">دعم</string>
+    <string name="milestone_banner_dismiss">تخطي</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">دعم ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">راعٍ نشط لمعرض الفنون</string>
+    <string name="settings_patron_active_desc">شكراً لمساهمتكم القيمة! بفضلكم يظل المعرض متاحاً بالمجان ومجرداً من الإعلانات.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV إطار فني مفتوح ومحافظ على الخصوصية. نتشرف بدعمكم إن راقت لكم اللوحات.</string>
+    <string name="settings_patron_btn_options">خيارات الرعاية</string>
+    <string name="settings_patron_btn_become">الانضمام للرعاة</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">صالة هادئة</string>
+    <string name="sound_silence_desc">تأمل بصري خالص في سكون</string>
+    <string name="sound_rain">مطر على القبة الزجاجية</string>
+    <string name="sound_rain_desc">قطرات رذاذ رقيقة فوق قبة المتحف</string>
+    <string name="sound_waves">نسيم المحيط</string>
+    <string name="sound_waves_desc">أمواج هادئة ذات إيقاع مريح</string>
+    <string name="sound_cafe">حديقة الفناء</string>
+    <string name="sound_cafe_desc">نسمات المساء العليلة في فناء المتحف</string>
+</resources>

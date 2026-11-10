@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Frame Gold Accent -->
+    <path
+        android:fillColor="#E5C158"
+        android:pathData="M28,28h52v52H28zM33,33v42h42V33H33z" />
+    <!-- Inner Canvas Dark Area -->
+    <path
+        android:fillColor="#242834"
+        android:pathData="M35,35h38v38H35z" />
+    <!-- Mountain / Sun Art Design -->
+    <path
+        android:fillColor="#E5C158"
+        android:pathData="M64,44m-4,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#F4E6C0"
+        android:pathData="M39,67l10,-14l8,10l6,-7l10,11z" />
+</vector>

@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">4K CC0 퍼블릭 도메인 명화 • 앰비언트 스크린세이버</string>
+    <string name="splash_loading">엄선된 미술관을 여는 중…</string>
+    <string name="kiosk_brand_subtitle">메트로폴리탄 미술관 • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">이전 작품</string>
+    <string name="control_next">다음 작품</string>
+    <string name="control_play">슬라이드쇼 재생</string>
+    <string name="control_pause">슬라이드쇼 일시정지</string>
+    <string name="control_browse">갤러리 탐색</string>
+    <string name="control_settings">설정</string>
+    <string name="control_desk_stand">탁상 거치대 모드</string>
+    <string name="control_soundscapes">앰비언트 사운드스케이프</string>
+    <string name="control_departments">부서 및 예술 사조</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">즐겨찾기에 추가</string>
+    <string name="placard_fav_remove">즐겨찾기에서 제거</string>
+    <string name="placard_details">작품 상세 정보</string>
+    <string name="met_accession">소장 번호: %1$s</string>
+    <string name="loading_category">Met Museum API에서 %1$s 불러오는 중…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">큐레이터 기록</string>
+    <string name="details_close">상세 정보 닫기</string>
+    <string name="details_label_date">제작 연도</string>
+    <string name="details_label_medium">재료 및 기법</string>
+    <string name="details_label_dimensions">크기</string>
+    <string name="details_label_department">소장 부서</string>
+    <string name="details_label_culture">문화 / 시대</string>
+    <string name="details_label_credit">소장 출처</string>
+    <string name="details_label_accession">등록 번호</string>
+    <string name="details_curatorial_overview">큐레이터 해설</string>
+    <string name="details_saved_private">개인 갤러리에 저장됨</string>
+    <string name="details_add_private">개인 갤러리에 추가</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">소장 부서 &amp; 예술 사조</string>
+    <string name="category_dialog_subtitle">메트로폴리탄 미술관 컬렉션으로 필터링</string>
+    <string name="category_close">선택 화면 닫기</string>
+    <string name="category_all">전체 카테고리</string>
+    <string name="category_movements">예술 사조</string>
+    <string name="category_departments">미술관 부서</string>
+    <string name="category_favorites">개인 갤러리</string>
+    <string name="category_badge_active">선택됨</string>
+    <string name="category_badge_movement">예술 사조</string>
+    <string name="category_badge_department">미술관 부서</string>
+    <string name="category_badge_favorites">개인 갤러리</string>
+    <string name="category_badge_collection">전체 소장품</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">메트로폴리탄 미술관 카탈로그</string>
+    <string name="browser_subtitle">CC0 퍼블릭 도메인 명작 둘러보기 (총 %1$d점)</string>
+    <string name="browser_close">카탈로그 닫기</string>
+    <string name="browser_search_placeholder">작품 제목 또는 작가 검색…</string>
+    <string name="browser_search_desc">검색</string>
+    <string name="browser_empty">\"%1$s\"에 대한 검색 결과가 없습니다</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">액자 및 키오스크 설정</string>
+    <string name="settings_subtitle">Android TV 및 탁상 환경 설정</string>
+    <string name="settings_close">설정 닫기</string>
+    <string name="settings_interval_title">슬라이드쇼 전환 간격</string>
+    <string name="settings_interval_10s">10초</string>
+    <string name="settings_interval_15s">15초</string>
+    <string name="settings_interval_30s">30초</string>
+    <string name="settings_interval_1m">1분</string>
+    <string name="settings_interval_3m">3분</string>
+    <string name="settings_interval_5m">5분</string>
+    <string name="settings_interval_10m">10분</string>
+
+    <string name="settings_autohide_title">작품 명판 자동 숨김</string>
+    <string name="settings_autohide_desc">5초 후 명판 자동 숨김</string>
+    <string name="settings_autohide_sub">화면 터치나 리모컨 입력으로 다시 표시</string>
+
+    <string name="settings_kenburns_title">켄 번스 효과 (서서히 확대)</string>
+    <string name="settings_kenburns_desc">고화질 명화 위를 은은하게 패닝 및 줌하는 영상 효과</string>
+
+    <string name="settings_clock_title">탁상 시계 오버레이</string>
+    <string name="settings_clock_desc">탁상 거치대를 위한 우아한 디지털 시계 및 날짜 표시</string>
+
+    <string name="settings_backlight_title">캔버스 앰비언트 백라이트</string>
+    <string name="settings_backlight_desc">명화의 주조색을 추출하여 방안에 은은한 빛을 투사</string>
+    <string name="settings_glow_intensity">조명 밝기 세기</string>
+    <string name="settings_glow_subtle">은은하게 (35%)</string>
+    <string name="settings_glow_balanced">적당하게 (65%)</string>
+    <string name="settings_glow_vivid">선명하게 (100%)</string>
+
+    <string name="settings_soundscapes_title">앰비언트 사운드스케이프</string>
+
+    <string name="settings_daydream_title">Android TV 데이드림 연동</string>
+    <string name="settings_daydream_desc">ArtGallery TV를 기본 화면 보호기로 설정하려면:\nAndroid TV 설정 → 기기 환경설정 → 화면 보호기 → \'ArtGallery TV\'를 선택하세요.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">미술관 후원 (Patronage)</string>
+    <string name="patron_header_subtitle">광고 없는 순수 CC0 명작 감상을 후원하세요</string>
+    <string name="patron_close">닫기</string>
+    <string name="patron_active_badge">공식 미술관 후원자 (%1$s)</string>
+    <string name="patron_thank_you">따뜻한 후원에 깊이 감사드립니다! 여러분의 관심 덕분에 ArtGallery TV가 100% 무광고로 유지됩니다.</string>
+    <string name="patron_value_statement">ArtGallery TV는 광고, 데이터 추적, 알고리즘 피로 없이 전 세계 명화를 거실과 책상으로 전달합니다.</string>
+    <string name="patron_google_play_tiers">Google Play 인앱 후원 (단발성)</string>
+    <string name="patron_tier_apprentice">갤러리 견습생</string>
+    <string name="patron_tier_supporter">예술 서포터</string>
+    <string name="patron_tier_connoisseur">마스터 감정가</string>
+    <string name="patron_tier_benefactor">미술관 후원귀빈</string>
+    <string name="patron_btn_become">Google Play로 후원하기 (%1$s)</string>
+    <string name="patron_success_toast">후원이 확인되었습니다! 예술을 사랑해주셔서 감사합니다.</string>
+    <string name="patron_success_msg">감사합니다! 공식 후원자(%1$s)로 등록되었습니다.</string>
+
+    <string name="patron_alt_channels">기타 후원 방법</string>
+    <string name="patron_paypal_show">PayPal 및 QR</string>
+    <string name="patron_paypal_hide">PayPal 숨기기</string>
+    <string name="patron_kofi_btn">Ko-fi로 팁 보내기</string>
+    <string name="patron_paypal_title">PayPal 직접 송금</string>
+    <string name="patron_paypal_scan_prompt">휴대폰으로 스캔하거나 링크를 이용하세요:</string>
+    <string name="patron_copy_link">링크 복사</string>
+    <string name="patron_open_web">웹 열기</string>
+    <string name="patron_toast_paypal_copied">PayPal 링크가 클립보드에 복사되었습니다!</string>
+    <string name="patron_toast_kofi_copied">링크가 클립보드에 복사되었습니다: %1$s</string>
+    <string name="patron_privacy_note">개인정보 보장: 100% 오프라인 동작 가능 및 사용자 데이터 추적 없음.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">명화가 마음에 드시나요? 무광고 환경을 함께 지켜주세요</string>
+    <string name="milestone_banner_support">후원하기</string>
+    <string name="milestone_banner_dismiss">닫기</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">ARTGALLERY TV 후원하기</string>
+    <string name="settings_patron_active_title">공식 미술관 후원자</string>
+    <string name="settings_patron_active_desc">따뜻한 후원에 감사드립니다! 여러분 덕분에 ArtGallery TV가 자유롭게 유지됩니다.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV는 광고 없는 오픈 갤러리 키오스크입니다. 마음에 드신다면 후원을 고려해주세요.</string>
+    <string name="settings_patron_btn_options">후원 옵션</string>
+    <string name="settings_patron_btn_become">후원자 되기</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">고요한 갤러리</string>
+    <string name="sound_silence_desc">순수한 시각적 명상</string>
+    <string name="sound_rain">천창에 내리는 비</string>
+    <string name="sound_rain_desc">유리 돔 위에 부드럽게 떨어지는 빗소리</string>
+    <string name="sound_waves">바닷바람</string>
+    <string name="sound_waves_desc">은은하고 규칙적인 해안가 파도 소리</string>
+    <string name="sound_cafe">안뜰 정원</string>
+    <string name="sound_cafe_desc">해질녘 미술관 정원의 산들바람</string>
+</resources>

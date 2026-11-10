@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">4K CC0パブリックドメイン名画 • アンビエントスクリーンセーバー</string>
+    <string name="splash_loading">厳選ギャラリーを開いています…</string>
+    <string name="kiosk_brand_subtitle">メトロポリタン美術館 • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">前の作品</string>
+    <string name="control_next">次の作品</string>
+    <string name="control_play">スライドショー再生</string>
+    <string name="control_pause">スライドショー一時停止</string>
+    <string name="control_browse">ギャラリーを閲覧</string>
+    <string name="control_settings">設定</string>
+    <string name="control_desk_stand">デスクスタンド卓上モード</string>
+    <string name="control_soundscapes">環境サウンドスケープ</string>
+    <string name="control_departments">部門・芸術運動</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">お気に入りに追加</string>
+    <string name="placard_fav_remove">お気に入りから削除</string>
+    <string name="placard_details">作品の詳細</string>
+    <string name="met_accession">メット収蔵番号: %1$s</string>
+    <string name="loading_category">Met Museum APIから%1$sを読み込み中…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">学芸員キュレーション記録</string>
+    <string name="details_close">詳細を閉じる</string>
+    <string name="details_label_date">制作年</string>
+    <string name="details_label_medium">技法・素材</string>
+    <string name="details_label_dimensions">寸法</string>
+    <string name="details_label_department">収蔵部門</string>
+    <string name="details_label_culture">文化・時代</string>
+    <string name="details_label_credit">寄贈情報</string>
+    <string name="details_label_accession">収蔵番号</string>
+    <string name="details_curatorial_overview">学芸員解説</string>
+    <string name="details_saved_private">プライベートギャラリーに保存済み</string>
+    <string name="details_add_private">プライベートギャラリーに追加</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">部門 &amp; 芸術運動</string>
+    <string name="category_dialog_subtitle">メット美術館コレクションからスライドショーを絞り込み</string>
+    <string name="category_close">選択画面を閉じる</string>
+    <string name="category_all">すべてのカテゴリー</string>
+    <string name="category_movements">芸術運動</string>
+    <string name="category_departments">メット収蔵部門</string>
+    <string name="category_favorites">プライベートギャラリー</string>
+    <string name="category_badge_active">現在選択中</string>
+    <string name="category_badge_movement">芸術運動</string>
+    <string name="category_badge_department">美術館部門</string>
+    <string name="category_badge_favorites">プライベートギャラリー</string>
+    <string name="category_badge_collection">全コレクション</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">メトロポリタン美術館カタログ</string>
+    <string name="browser_subtitle">CC0パブリックドメイン名画を閲覧（%1$d作品）</string>
+    <string name="browser_close">カタログを閉じる</string>
+    <string name="browser_search_placeholder">作品名または画家名で検索…</string>
+    <string name="browser_search_desc">検索</string>
+    <string name="browser_empty">\"%1$s\"に一致する作品は見つかりませんでした</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">フレーム &amp; キオスク設定</string>
+    <string name="settings_subtitle">Android TV・卓上フレーム体験のカスタマイズ</string>
+    <string name="settings_close">設定を閉じる</string>
+    <string name="settings_interval_title">スライド切り替え間隔</string>
+    <string name="settings_interval_10s">10秒</string>
+    <string name="settings_interval_15s">15秒</string>
+    <string name="settings_interval_30s">30秒</string>
+    <string name="settings_interval_1m">1分</string>
+    <string name="settings_interval_3m">3分</string>
+    <string name="settings_interval_5m">5分</string>
+    <string name="settings_interval_10m">10分</string>
+
+    <string name="settings_autohide_title">キャプション自動非表示</string>
+    <string name="settings_autohide_desc">5秒後に作品銘板を自動的に隠す</string>
+    <string name="settings_autohide_sub">画面タップまたはリモコン操作で再表示</string>
+
+    <string name="settings_kenburns_title">ケン・バーンズ効果（緩やかなズーム）</string>
+    <string name="settings_kenburns_desc">高精細絵画上でなめらかにパン＆ズームする情緒的演出</string>
+
+    <string name="settings_clock_title">卓上時計オーバーレイ</string>
+    <string name="settings_clock_desc">ナイトスタンドや卓上ドック用の優美なデジタル時計と日付表示</string>
+
+    <string name="settings_backlight_title">アンビエントキャンバス間接光</string>
+    <string name="settings_backlight_desc">作品の主要色彩をサンプリングし、部屋に柔らかな光を投影</string>
+    <string name="settings_glow_intensity">バックライトの光度</string>
+    <string name="settings_glow_subtle">ひかえめ (35%)</string>
+    <string name="settings_glow_balanced">標準 (65%)</string>
+    <string name="settings_glow_vivid">あざやか (100%)</string>
+
+    <string name="settings_soundscapes_title">環境サウンドスケープ</string>
+
+    <string name="settings_daydream_title">Android TV デイドリーム連携</string>
+    <string name="settings_daydream_desc">ArtGallery TVをシステムの標準スクリーンセーバーにするには：\nAndroid TV 設定 → デバイス設定 → スクリーンセーバー → \'ArtGallery TV\'を選択してください。</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">美術館パトロネージュ（支援）</string>
+    <string name="patron_header_subtitle">広告のないCC0名画ギャラリーを支援</string>
+    <string name="patron_close">閉じる</string>
+    <string name="patron_active_badge">認定美術館パトロン（%1$s）</string>
+    <string name="patron_thank_you">温かいご支援を誠にありがとうございます！ArtGallery TVは芸術愛好家の皆様のおかげで100%広告なしで運営されています。</string>
+    <string name="patron_value_statement">ArtGallery TVは、世界水準のCC0パブリックドメイン名画を、広告やデータ追跡なしにリビングやデスクへお届けします。</string>
+    <string name="patron_google_play_tiers">Google Play In-App支援（1回払い）</string>
+    <string name="patron_tier_apprentice">ギャラリー・アプレンティス</string>
+    <string name="patron_tier_supporter">アート・サポーター</string>
+    <string name="patron_tier_connoisseur">マスター・コニサー</string>
+    <string name="patron_tier_benefactor">ミュージアム・ベネファクター</string>
+    <string name="patron_btn_become">Google Playでパトロンになる（%1$s）</string>
+    <string name="patron_success_toast">パトロネージュが承認されました！芸術への温かいご支援に感謝いたします。</string>
+    <string name="patron_success_msg">ありがとうございます！アクティブ・パトロン（%1$s）として登録されました。</string>
+
+    <string name="patron_alt_channels">その他のご支援方法</string>
+    <string name="patron_paypal_show">PayPal &amp; QRコード</string>
+    <string name="patron_paypal_hide">PayPalを非表示</string>
+    <string name="patron_kofi_btn">Ko-fiでチップを送る</string>
+    <string name="patron_paypal_title">直接PayPal送金</string>
+    <string name="patron_paypal_scan_prompt">スマートフォンでQRをスキャンするかリンクをご利用ください：</string>
+    <string name="patron_copy_link">リンクをコピー</string>
+    <string name="patron_open_web">ウェブを開く</string>
+    <string name="patron_toast_paypal_copied">PayPalリンクをクリップボードにコピーしました！</string>
+    <string name="patron_toast_kofi_copied">リンクをコピーしました: %1$s</string>
+    <string name="patron_privacy_note">プライバシー保証：100%オフライン対応・ユーザーデータの追跡は一切行いません。</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">名画をお楽しみですか？広告なしの継続にご協力ください</string>
+    <string name="milestone_banner_support">支援する</string>
+    <string name="milestone_banner_dismiss">閉じる</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">ARTGALLERY TVを支援</string>
+    <string name="settings_patron_active_title">認定美術館パトロン</string>
+    <string name="settings_patron_active_desc">ご支援いただき心より感謝申し上げます。皆様のおかげで完全広告なしのギャラリーを継続できています。</string>
+    <string name="settings_patron_normal_desc">ArtGallery TVはプライバシー重視・広告一切なしのオープン名画キオスクです。お気に召しましたらご支援をご検討ください。</string>
+    <string name="settings_patron_btn_options">パトロンオプション</string>
+    <string name="settings_patron_btn_become">パトロンになる</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">静寂のギャラリー</string>
+    <string name="sound_silence_desc">純粋な視覚的瞑想</string>
+    <string name="sound_rain">天窓の雨音</string>
+    <string name="sound_rain_desc">ガラスドームに響く静かな小雨</string>
+    <string name="sound_waves">潮風の調べ</string>
+    <string name="sound_waves_desc">穏やかな海岸の波音</string>
+    <string name="sound_cafe">中庭の庭園</string>
+    <string name="sound_cafe_desc">夕暮れ時の中庭にそよぐ優しい風</string>
+</resources>

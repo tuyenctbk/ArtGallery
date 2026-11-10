@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">Шедевры 4K CC0 общественного достояния • Атмосферная заставка</string>
+    <string name="splash_loading">Открытие кураторской галереи…</string>
+    <string name="kiosk_brand_subtitle">Музей Метрополитен • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">Предыдущая картина</string>
+    <string name="control_next">Следующая картина</string>
+    <string name="control_play">Запустить слайд-шоу</string>
+    <string name="control_pause">Приостановить слайд-шоу</string>
+    <string name="control_browse">Обзор галереи</string>
+    <string name="control_settings">Настройки</string>
+    <string name="control_desk_stand">Режим настольной подставки</string>
+    <string name="control_soundscapes">Звуковые пейзажи</string>
+    <string name="control_departments">Отделы и направления</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">Добавить в избранное</string>
+    <string name="placard_fav_remove">Удалить из избранного</string>
+    <string name="placard_details">О картине</string>
+    <string name="met_accession">Инв. номер Мет: %1$s</string>
+    <string name="loading_category">Загрузка %1$s из API Музея Метрополитен…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">КУРАТОРСКАЯ ЗАПИСЬ</string>
+    <string name="details_close">Закрыть</string>
+    <string name="details_label_date">Дата создания</string>
+    <string name="details_label_medium">Материалы и техника</string>
+    <string name="details_label_dimensions">Размеры</string>
+    <string name="details_label_department">Отдел музея</string>
+    <string name="details_label_culture">Культура / Период</string>
+    <string name="details_label_credit">Происхождение</string>
+    <string name="details_label_accession">Инвентарный номер</string>
+    <string name="details_curatorial_overview">Кураторский обзор</string>
+    <string name="details_saved_private">Сохранено в Личную галерею</string>
+    <string name="details_add_private">В Личную галерею</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">ОТДЕЛЫ И НАПРАВЛЕНИЯ В ИСКУССТВЕ</string>
+    <string name="category_dialog_subtitle">Фильтр слайд-шоу по коллекциям Музея Метрополитен</string>
+    <string name="category_close">Закрыть выбор</string>
+    <string name="category_all">Все категории</string>
+    <string name="category_movements">Направления искусства</string>
+    <string name="category_departments">Отделы Метрополитен</string>
+    <string name="category_favorites">Личная галерея</string>
+    <string name="category_badge_active">АКТИВНО</string>
+    <string name="category_badge_movement">НАПРАВЛЕНИЕ</string>
+    <string name="category_badge_department">ОТДЕЛ МУЗЕЯ</string>
+    <string name="category_badge_favorites">ЛИЧНАЯ ГАЛЕРЕЯ</string>
+    <string name="category_badge_collection">ВСЯ КОЛЛЕКЦИЯ</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">КАТАЛОГ МУЗЕЯ МЕТРОПОЛИТЕН</string>
+    <string name="browser_subtitle">Шедевры общественного достояния CC0 (%1$d картин)</string>
+    <string name="browser_close">Закрыть каталог</string>
+    <string name="browser_search_placeholder">Поиск по названию или автору…</string>
+    <string name="browser_search_desc">Поиск</string>
+    <string name="browser_empty">Картины по запросу \"%1$s\" не найдены</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">НАСТРОЙКИ КИОСКА И РАМКИ</string>
+    <string name="settings_subtitle">Персонализация для Android TV и рабочего стола</string>
+    <string name="settings_close">Закрыть настройки</string>
+    <string name="settings_interval_title">Интервал смены картин</string>
+    <string name="settings_interval_10s">10 секунд</string>
+    <string name="settings_interval_15s">15 секунд</string>
+    <string name="settings_interval_30s">30 секунд</string>
+    <string name="settings_interval_1m">1 минута</string>
+    <string name="settings_interval_3m">3 минуты</string>
+    <string name="settings_interval_5m">5 минут</string>
+    <string name="settings_interval_10m">10 минут</string>
+
+    <string name="settings_autohide_title">Скрывать музейную табличку</string>
+    <string name="settings_autohide_desc">Автоматически скрывать через 5 секунд</string>
+    <string name="settings_autohide_sub">Коснитесь экрана или пульта, чтобы показать снова</string>
+
+    <string name="settings_kenburns_title">Эффект Кена Бёрнса (Плавный зум)</string>
+    <string name="settings_kenburns_desc">Мягкое панорамирование и приближение на полотнах в высоком разрешении</string>
+
+    <string name="settings_clock_title">Часы для настольного режима</string>
+    <string name="settings_clock_desc">Элегантные цифровые часы и дата для док-станции</string>
+
+    <string name="settings_backlight_title">Атмосферная фоновая подсветка</string>
+    <string name="settings_backlight_desc">Мягкое свечение на основе доминирующих оттенков картины</string>
+    <string name="settings_glow_intensity">Интенсивность подсветки</string>
+    <string name="settings_glow_subtle">Мягкая (35%)</string>
+    <string name="settings_glow_balanced">Сбалансированная (65%)</string>
+    <string name="settings_glow_vivid">Насыщенная (100%)</string>
+
+    <string name="settings_soundscapes_title">Звуковые пейзажи</string>
+
+    <string name="settings_daydream_title">Интеграция с заставкой Android TV</string>
+    <string name="settings_daydream_desc">Чтобы выбрать ArtGallery TV заставкой по умолчанию:\nПерейдите в Настройки ТВ → Настройки устройства → Заставка → Выберите \'ArtGallery TV\'.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">МУЗЕЙНОЕ МЕЦЕНАТСТВО</string>
+    <string name="patron_header_subtitle">Поддержите шедевры CC0 без рекламы</string>
+    <string name="patron_close">Закрыть</string>
+    <string name="patron_active_badge">Активный меценат музея (%1$s)</string>
+    <string name="patron_thank_you">Спасибо за вашу щедрую поддержку! ArtGallery TV работает на 100% без рекламы благодаря ценителям искусства.</string>
+    <string name="patron_value_statement">ArtGallery TV приносит мировые шедевры искусства прямо в вашу гостиную без рекламы, сбора данных и алгоритмов.</string>
+    <string name="patron_google_play_tiers">Уровни Google Play (Разовый взнос)</string>
+    <string name="patron_tier_apprentice">Ученик галереи</string>
+    <string name="patron_tier_supporter">Друг искусства</string>
+    <string name="patron_tier_connoisseur">Знаток живописи</string>
+    <string name="patron_tier_benefactor">Почётный меценат</string>
+    <string name="patron_btn_become">Стать меценатом через Google Play (%1$s)</string>
+    <string name="patron_success_toast">Поддержка подтверждена! Спасибо за вклад в искусство.</string>
+    <string name="patron_success_msg">Спасибо! Вы отмечены как Активный Меценат (%1$s).</string>
+
+    <string name="patron_alt_channels">Другие способы поддержки</string>
+    <string name="patron_paypal_show">PayPal и QR-код</string>
+    <string name="patron_paypal_hide">Скрыть PayPal</string>
+    <string name="patron_kofi_btn">Поддержать на Ko-fi</string>
+    <string name="patron_paypal_title">Прямой перевод PayPal</string>
+    <string name="patron_paypal_scan_prompt">Отсканируйте камерой или перейдите по ссылке:</string>
+    <string name="patron_copy_link">Скопировать ссылку</string>
+    <string name="patron_open_web">Открыть сайт</string>
+    <string name="patron_toast_paypal_copied">Ссылка PayPal скопирована в буфер обмена!</string>
+    <string name="patron_toast_kofi_copied">Ссылка скопирована в буфер обмена: %1$s</string>
+    <string name="patron_privacy_note">Конфиденциальность: 100% автономная работа без сбора пользовательских данных.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">Нравится искусство? Помогите нам оставаться без рекламы</string>
+    <string name="milestone_banner_support">Поддержать</string>
+    <string name="milestone_banner_dismiss">Закрыть</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">ПОДДЕРЖАТЬ ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">АКТИВНЫЙ МЕЦЕНАТ МУЗЕЯ</string>
+    <string name="settings_patron_active_desc">Спасибо за вклад! Ваша поддержка позволяет ArtGallery TV оставаться доступным и без рекламы.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV — это открытый и свободный от рекламы музейный киоск. Будем признательны за вашу поддержку.</string>
+    <string name="settings_patron_btn_options">Варианты поддержки</string>
+    <string name="settings_patron_btn_become">Стать меценатом</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">Тишина галереи</string>
+    <string name="sound_silence_desc">Чистое визуальное созерцание</string>
+    <string name="sound_rain">Дождь по стеклянной крыше</string>
+    <string name="sound_rain_desc">Нежный шум дождя под куполом музея</string>
+    <string name="sound_waves">Морской бриз</string>
+    <string name="sound_waves_desc">Мягкие ритмичные прибрежные волны</string>
+    <string name="sound_cafe">Внутренний дворик</string>
+    <string name="sound_cafe_desc">Вечерний ветерок в музейном саду</string>
+</resources>

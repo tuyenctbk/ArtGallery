@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">Capolavori di pubblico dominio 4K CC0 • Salvaschermo d\'atmosfera</string>
+    <string name="splash_loading">Apertura galleria curata…</string>
+    <string name="kiosk_brand_subtitle">Met Museum • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">Opera precedente</string>
+    <string name="control_next">Opera successiva</string>
+    <string name="control_play">Riproduci presentazione</string>
+    <string name="control_pause">Pausa presentazione</string>
+    <string name="control_browse">Esplora galleria</string>
+    <string name="control_settings">Impostazioni</string>
+    <string name="control_desk_stand">Modalità supporto da tavolo</string>
+    <string name="control_soundscapes">Paesaggi sonori ambientali</string>
+    <string name="control_departments">Dipartimenti e movimenti</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">Aggiungi ai preferiti</string>
+    <string name="placard_fav_remove">Rimuovi dai preferiti</string>
+    <string name="placard_details">Dettagli dell\'opera</string>
+    <string name="met_accession">Numero di inventario Met: %1$s</string>
+    <string name="loading_category">Caricamento di %1$s dall\'API del Met Museum…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">SCHEDA CURATORIALE</string>
+    <string name="details_close">Chiudi dettagli</string>
+    <string name="details_label_date">Data</string>
+    <string name="details_label_medium">Tecnica</string>
+    <string name="details_label_dimensions">Dimensioni</string>
+    <string name="details_label_department">Dipartimento</string>
+    <string name="details_label_culture">Cultura / Epoca</string>
+    <string name="details_label_credit">Linea di credito</string>
+    <string name="details_label_accession">Numero di inventario</string>
+    <string name="details_curatorial_overview">Panoramica curatoriale</string>
+    <string name="details_saved_private">Salvato nella Galleria Privata</string>
+    <string name="details_add_private">Aggiungi alla Galleria Privata</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">DIPARTIMENTI E MOVIMENTI</string>
+    <string name="category_dialog_subtitle">Filtra la presentazione con le collezioni del Met</string>
+    <string name="category_close">Chiudi selezione</string>
+    <string name="category_all">Tutte le categorie</string>
+    <string name="category_movements">Movimenti artistici</string>
+    <string name="category_departments">Dipartimenti del Met</string>
+    <string name="category_favorites">Galleria Privata</string>
+    <string name="category_badge_active">ATTIVO</string>
+    <string name="category_badge_movement">MOVIMENTO ARTISTICO</string>
+    <string name="category_badge_department">DIPARTIMENTO DEL MET</string>
+    <string name="category_badge_favorites">GALLERIA PRIVATA</string>
+    <string name="category_badge_collection">COLLEZIONE COMPLETA</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">CATALOGO DEL METROPOLITAN MUSEUM</string>
+    <string name="browser_subtitle">Sfoglia capolavori CC0 di pubblico dominio (%1$d Opere)</string>
+    <string name="browser_close">Chiudi catalogo</string>
+    <string name="browser_search_placeholder">Cerca titolo o artista…</string>
+    <string name="browser_search_desc">Cerca</string>
+    <string name="browser_empty">Nessuna opera trovata per \"%1$s\"</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">IMPOSTAZIONI CORNICE E KIOSK</string>
+    <string name="settings_subtitle">Personalizza per Android TV e scrivania</string>
+    <string name="settings_close">Chiudi impostazioni</string>
+    <string name="settings_interval_title">Intervallo presentazione</string>
+    <string name="settings_interval_10s">10 Secondi</string>
+    <string name="settings_interval_15s">15 Secondi</string>
+    <string name="settings_interval_30s">30 Secondi</string>
+    <string name="settings_interval_1m">1 Minuto</string>
+    <string name="settings_interval_3m">3 Minuti</string>
+    <string name="settings_interval_5m">5 Minuti</string>
+    <string name="settings_interval_10m">10 Minuti</string>
+
+    <string name="settings_autohide_title">Nascondi cartellino informativo</string>
+    <string name="settings_autohide_desc">Nascondi automaticamente dopo 5 secondi</string>
+    <string name="settings_autohide_sub">Tocca o premi un tasto del telecomando per mostrare</string>
+
+    <string name="settings_kenburns_title">Effetto Ken Burns (Zoom lento)</string>
+    <string name="settings_kenburns_desc">Movimento lento e zoom d\'atmosfera sulle opere ad alta risoluzione</string>
+
+    <string name="settings_clock_title">Orologio da tavolo e dock</string>
+    <string name="settings_clock_desc">Mostra un elegante orologio digitale e la data</string>
+
+    <string name="settings_backlight_title">Retroilluminazione ambientale</string>
+    <string name="settings_backlight_desc">Diffonde una luce soffusa ispirata ai colori dell\'opera</string>
+    <string name="settings_glow_intensity">Intensità della luminosità</string>
+    <string name="settings_glow_subtle">Delicata (35%)</string>
+    <string name="settings_glow_balanced">Bilanciata (65%)</string>
+    <string name="settings_glow_vivid">Vivace (100%)</string>
+
+    <string name="settings_soundscapes_title">Paesaggi sonori ambientali</string>
+
+    <string name="settings_daydream_title">Salvaschermo Android TV Daydream</string>
+    <string name="settings_daydream_desc">Per impostare ArtGallery TV come salvaschermo predefinito:\nVai su Impostazioni Android TV → Preferenze del dispositivo → Salvaschermo → Seleziona \'ArtGallery TV\'.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">MECENATISMO MUSEALE</string>
+    <string name="patron_header_subtitle">Sostieni capolavori CC0 senza pubblicità</string>
+    <string name="patron_close">Chiudi</string>
+    <string name="patron_active_badge">Mecenate attivo del museo (%1$s)</string>
+    <string name="patron_thank_you">Grazie per il tuo generoso supporto! ArtGallery TV è al 100% senza pubblicità grazie agli amanti dell\'arte come te.</string>
+    <string name="patron_value_statement">ArtGallery TV porta capolavori d\'arte mondiale di pubblico dominio direttamente a casa tua, senza pubblicità o tracciamento dati.</string>
+    <string name="patron_google_play_tiers">Livelli Google Play (Acquisto singolo)</string>
+    <string name="patron_tier_apprentice">Apprendista della Galleria</string>
+    <string name="patron_tier_supporter">Amico dell\'Arte</string>
+    <string name="patron_tier_connoisseur">Grande Intenditore</string>
+    <string name="patron_tier_benefactor">Benefattore del Museo</string>
+    <string name="patron_btn_become">Diventa mecenate con Google Play (%1$s)</string>
+    <string name="patron_success_toast">Mecenatismo confermato! Grazie per sostenere le arti.</string>
+    <string name="patron_success_msg">Grazie! Ora sei registrato come Mecenate Attivo (%1$s).</string>
+
+    <string name="patron_alt_channels">Altri canali di supporto</string>
+    <string name="patron_paypal_show">PayPal e QR</string>
+    <string name="patron_paypal_hide">Nascondi PayPal</string>
+    <string name="patron_kofi_btn">Offri un caffè su Ko-fi</string>
+    <string name="patron_paypal_title">Trasferimento diretto PayPal</string>
+    <string name="patron_paypal_scan_prompt">Scansiona con lo smartphone o usa il link:</string>
+    <string name="patron_copy_link">Copia link</string>
+    <string name="patron_open_web">Apri web</string>
+    <string name="patron_toast_paypal_copied">Link PayPal copiato negli appunti!</string>
+    <string name="patron_toast_kofi_copied">Link copiato negli appunti: %1$s</string>
+    <string name="patron_privacy_note">Garanzia di privacy: 100% funzionante offline e nessun tracciamento dei dati.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">Ti piace l\'arte? Mantieni l\'app senza pubblicità</string>
+    <string name="milestone_banner_support">Sostieni</string>
+    <string name="milestone_banner_dismiss">Chiudi</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">SOSTIENI ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">MECENATE ATTIVO DEL MUSEO</string>
+    <string name="settings_patron_active_desc">Grazie per la tua generosità! Il tuo contributo garantisce che ArtGallery TV rimanga accessibile e senza pubblicità.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV è una cornice d\'arte libera, privata e senza pubblicità. Se apprezzi i capolavori, considera di diventare mecenate.</string>
+    <string name="settings_patron_btn_options">Opzioni mecenate</string>
+    <string name="settings_patron_btn_become">Diventa mecenate</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">Galleria silenziosa</string>
+    <string name="sound_silence_desc">Pura contemplazione visiva</string>
+    <string name="sound_rain">Pioggia sul lucernario</string>
+    <string name="sound_rain_desc">Leggera pioggerella sulla cupola di vetro</string>
+    <string name="sound_waves">Brezza oceanica</string>
+    <string name="sound_waves_desc">Dolci onde costiere ritmiche</string>
+    <string name="sound_cafe">Giardino del cortile</string>
+    <string name="sound_cafe_desc">Soffio serale nel giardino del museo</string>
+</resources>

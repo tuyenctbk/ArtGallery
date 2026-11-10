@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">Kiệt tác 4K CC0 Miền công cộng • Trình bảo vệ màn hình thư thái</string>
+    <string name="splash_loading">Đang mở phòng trưng bày nghệ thuật…</string>
+    <string name="kiosk_brand_subtitle">Bảo tàng Metropolitan • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">Tác phẩm trước</string>
+    <string name="control_next">Tác phẩm tiếp theo</string>
+    <string name="control_play">Phát trình chiếu</string>
+    <string name="control_pause">Tạm dừng trình chiếu</string>
+    <string name="control_browse">Khám phá bộ sưu tập</string>
+    <string name="control_settings">Cài đặt</string>
+    <string name="control_desk_stand">Chế độ khung để bàn</string>
+    <string name="control_soundscapes">Âm thanh môi trường</string>
+    <string name="control_departments">Bộ phận &amp; Trường phái</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">Thêm vào yêu thích</string>
+    <string name="placard_fav_remove">Xóa khỏi yêu thích</string>
+    <string name="placard_details">Chi tiết tác phẩm</string>
+    <string name="met_accession">Mã lưu trữ Met: %1$s</string>
+    <string name="loading_category">Đang tải %1$s từ API Bảo tàng Met…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">HỒ SƠ GIÁM TUYỂN</string>
+    <string name="details_close">Đóng chi tiết</string>
+    <string name="details_label_date">Thời gian sáng tác</string>
+    <string name="details_label_medium">Chất liệu / Kỹ thuật</string>
+    <string name="details_label_dimensions">Kích thước</string>
+    <string name="details_label_department">Bộ phận lưu trữ</string>
+    <string name="details_label_culture">Văn hóa / Thời kỳ</string>
+    <string name="details_label_credit">Nguồn tiếp nhận</string>
+    <string name="details_label_accession">Mã số đăng ký</string>
+    <string name="details_curatorial_overview">Tổng quan giám tuyển</string>
+    <string name="details_saved_private">Đã lưu vào Bộ sưu tập riêng</string>
+    <string name="details_add_private">Lưu vào Bộ sưu tập riêng</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">BỘ PHẬN &amp; TRƯỜNG PHÁI NGHỆ THUẬT</string>
+    <string name="category_dialog_subtitle">Lọc trình chiếu theo bộ sưu tập của Bảo tàng Met</string>
+    <string name="category_close">Đóng chọn danh mục</string>
+    <string name="category_all">Tất cả danh mục</string>
+    <string name="category_movements">Trường phái nghệ thuật</string>
+    <string name="category_departments">Bộ phận Bảo tàng Met</string>
+    <string name="category_favorites">Bộ sưu tập riêng</string>
+    <string name="category_badge_active">ĐANG CHỌN</string>
+    <string name="category_badge_movement">TRƯỜNG PHÁI</string>
+    <string name="category_badge_department">BỘ PHẬN BẢO TÀNG</string>
+    <string name="category_badge_favorites">BỘ SƯU TẬP RIÊNG</string>
+    <string name="category_badge_collection">TOÀN BỘ BỘ SƯU TẬP</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">CATALOGUE BẢO TÀNG METROPOLITAN</string>
+    <string name="browser_subtitle">Duyệt kiệt tác CC0 Miền công cộng (%1$d Tác phẩm)</string>
+    <string name="browser_close">Đóng catalogue</string>
+    <string name="browser_search_placeholder">Tìm tên tác phẩm hoặc họa sĩ…</string>
+    <string name="browser_search_desc">Tìm kiếm</string>
+    <string name="browser_empty">Không tìm thấy tác phẩm nào cho \"%1$s\"</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">CÀI ĐẶT KHUNG TRANH &amp; KIOSK</string>
+    <string name="settings_subtitle">Tùy chỉnh trải nghiệm trên Android TV &amp; bàn làm việc</string>
+    <string name="settings_close">Đóng cài đặt</string>
+    <string name="settings_interval_title">Khoảng thời gian chuyển tranh</string>
+    <string name="settings_interval_10s">10 giây</string>
+    <string name="settings_interval_15s">15 giây</string>
+    <string name="settings_interval_30s">30 giây</string>
+    <string name="settings_interval_1m">1 phút</string>
+    <string name="settings_interval_3m">3 phút</string>
+    <string name="settings_interval_5m">5 phút</string>
+    <string name="settings_interval_10m">10 phút</string>
+
+    <string name="settings_autohide_title">Tự động ẩn bảng thông tin tranh</string>
+    <string name="settings_autohide_desc">Tự động ẩn bảng thông tin sau 5 giây</string>
+    <string name="settings_autohide_sub">Chạm màn hình hoặc bấm phím điều khiển để hiện lại</string>
+
+    <string name="settings_kenburns_title">Hiệu ứng Ken Burns (Thu phóng chậm)</string>
+    <string name="settings_kenburns_desc">Thu phóng và lia nhẹ nhàng trên tranh có độ phân giải cao</string>
+
+    <string name="settings_clock_title">Lớp đồng hồ chế độ để bàn</string>
+    <string name="settings_clock_desc">Hiển thị đồng hồ số thanh lịch và ngày tháng</string>
+
+    <string name="settings_backlight_title">Đèn nền canvas môi trường</string>
+    <string name="settings_backlight_desc">Trích xuất màu sắc chủ đạo của bức tranh để tỏa ánh sáng dịu nhẹ</string>
+    <string name="settings_glow_intensity">Cường độ ánh sáng đèn nền</string>
+    <string name="settings_glow_subtle">Dịu nhẹ (35%)</string>
+    <string name="settings_glow_balanced">Cân bằng (65%)</string>
+    <string name="settings_glow_vivid">Rực rỡ (100%)</string>
+
+    <string name="settings_soundscapes_title">Âm thanh môi trường</string>
+
+    <string name="settings_daydream_title">Tích hợp bảo vệ màn hình Android TV Daydream</string>
+    <string name="settings_daydream_desc">Để đặt ArtGallery TV làm trình bảo vệ màn hình mặc định:\nVào Cài đặt Android TV → Tùy chọn thiết bị → Trình bảo vệ màn hình → Chọn \'ArtGallery TV\'.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">BẢO TRỢ NGHỆ THUẬT</string>
+    <string name="patron_header_subtitle">Ủng hộ kiệt tác CC0 hoàn toàn không quảng cáo</string>
+    <string name="patron_close">Đóng</string>
+    <string name="patron_active_badge">Nhà bảo trợ nghệ thuật (%1$s)</string>
+    <string name="patron_thank_you">Xin chân thành cảm ơn sự ủng hộ hào phóng của bạn! ArtGallery TV giữ được 100% không quảng cáo nhờ những người yêu nghệ thuật như bạn.</string>
+    <string name="patron_value_statement">ArtGallery TV mang các kiệt tác nghệ thuật thế giới đến phòng khách và bàn làm việc của bạn mà không có quảng cáo hay theo dõi dữ liệu.</string>
+    <string name="patron_google_play_tiers">Gói ủng hộ qua Google Play (Một lần)</string>
+    <string name="patron_tier_apprentice">Người học việc</string>
+    <string name="patron_tier_supporter">Người yêu nghệ thuật</string>
+    <string name="patron_tier_connoisseur">Bậc thầy thưởng lãm</string>
+    <string name="patron_tier_benefactor">Nhà bảo trợ danh dự</string>
+    <string name="patron_btn_become">Ủng hộ qua Google Play (%1$s)</string>
+    <string name="patron_success_toast">Xác nhận ủng hộ thành công! Cảm ơn bạn đã đồng hành cùng nghệ thuật.</string>
+    <string name="patron_success_msg">Cảm ơn bạn! Bạn đã được ghi nhận là Nhà bảo trợ tích cực (%1$s).</string>
+
+    <string name="patron_alt_channels">Kênh hỗ trợ khác</string>
+    <string name="patron_paypal_show">PayPal &amp; Mã QR</string>
+    <string name="patron_paypal_hide">Ẩn PayPal</string>
+    <string name="patron_kofi_btn">Ủng hộ qua Ko-fi</string>
+    <string name="patron_paypal_title">Chuyển trực tiếp qua PayPal</string>
+    <string name="patron_paypal_scan_prompt">Quét mã bằng điện thoại hoặc dùng liên kết:</string>
+    <string name="patron_copy_link">Sao chép liên kết</string>
+    <string name="patron_open_web">Mở trang web</string>
+    <string name="patron_toast_paypal_copied">Đã sao chép liên kết PayPal vào bộ nhớ tạm!</string>
+    <string name="patron_toast_kofi_copied">Đã sao chép liên kết vào bộ nhớ tạm: %1$s</string>
+    <string name="patron_privacy_note">Cam kết quyền riêng tư: 100% hỗ trợ ngoại tuyến và hoàn toàn không theo dõi dữ liệu người dùng.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">Bạn yêu thích các bức tranh? Hãy giúp chúng tôi duy trì không quảng cáo</string>
+    <string name="milestone_banner_support">Ủng hộ</string>
+    <string name="milestone_banner_dismiss">Bỏ qua</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">ỦNG HỘ ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">NHÀ BẢO TRỢ NGHỆ THUẬT</string>
+    <string name="settings_patron_active_desc">Cảm ơn tấm lòng hảo tâm của bạn! Sự đóng góp của bạn giúp ArtGallery TV duy trì mở và miễn phí.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV là khung tranh nghệ thuật mở, riêng tư và không quảng cáo. Rất mong nhận được sự ủng hộ của bạn.</string>
+    <string name="settings_patron_btn_options">Tùy chọn bảo trợ</string>
+    <string name="settings_patron_btn_become">Trở thành nhà bảo trợ</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">Phòng tranh yên tĩnh</string>
+    <string name="sound_silence_desc">Chiêm ngưỡng thị giác thuần khiết</string>
+    <string name="sound_rain">Mưa rơi trên mái kính</string>
+    <string name="sound_rain_desc">Mưa phùn êm dịu trên mái vòm kính bảo tàng</string>
+    <string name="sound_waves">Gió biển rì rào</string>
+    <string name="sound_waves_desc">Tiếng sóng biển nhịp nhàng êm ái</string>
+    <string name="sound_cafe">Vườn sân trong</string>
+    <string name="sound_cafe_desc">Gió chiều nhẹ nhàng trong hoa viên bảo tàng</string>
+</resources>

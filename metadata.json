@@ -1,0 +1,6 @@
+{
+  "name": "ArtGallery TV",
+  "description": "4K CC0 Museum Artwork Frame & Daydream Screen Saver for Android TV & Desk Stand Kiosk",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

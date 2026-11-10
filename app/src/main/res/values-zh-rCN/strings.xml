@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">4K CC0公共领域艺术杰作 • 沉浸式环境壁纸与屏保</string>
+    <string name="splash_loading">正在打开精选艺术画廊…</string>
+    <string name="kiosk_brand_subtitle">大都会艺术博物馆 • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">上一幅作品</string>
+    <string name="control_next">下一幅作品</string>
+    <string name="control_play">播放幻灯片</string>
+    <string name="control_pause">暂停幻灯片</string>
+    <string name="control_browse">浏览画廊</string>
+    <string name="control_settings">设置</string>
+    <string name="control_desk_stand">桌面与底座模式</string>
+    <string name="control_soundscapes">环境原声声景</string>
+    <string name="control_departments">部门与艺术流派</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">添加至收藏</string>
+    <string name="placard_fav_remove">从收藏中移除</string>
+    <string name="placard_details">作品详情</string>
+    <string name="met_accession">馆藏编号: %1$s</string>
+    <string name="loading_category">正在从大都会博物馆获取 %1$s…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">馆藏策展记录</string>
+    <string name="details_close">关闭详情</string>
+    <string name="details_label_date">创作年代</string>
+    <string name="details_label_medium">材质与工艺</string>
+    <string name="details_label_dimensions">尺寸规格</string>
+    <string name="details_label_department">馆藏部门</string>
+    <string name="details_label_culture">文化与历史时期</string>
+    <string name="details_label_credit">捐赠致谢</string>
+    <string name="details_label_accession">入藏编号</string>
+    <string name="details_curatorial_overview">策展人专述</string>
+    <string name="details_saved_private">已保存至私人画廊</string>
+    <string name="details_add_private">添加至私人画廊</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">馆藏部门与艺术流派</string>
+    <string name="category_dialog_subtitle">根据大都会艺术博物馆馆藏筛选幻灯片</string>
+    <string name="category_close">关闭选择界面</string>
+    <string name="category_all">所有分类</string>
+    <string name="category_movements">艺术流派</string>
+    <string name="category_departments">馆藏部门</string>
+    <string name="category_favorites">私人画廊</string>
+    <string name="category_badge_active">当前选用</string>
+    <string name="category_badge_movement">艺术流派</string>
+    <string name="category_badge_department">博物馆部门</string>
+    <string name="category_badge_favorites">私人收藏</string>
+    <string name="category_badge_collection">全部藏品</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">大都会艺术博物馆目录</string>
+    <string name="browser_subtitle">浏览CC0公有领域艺术瑰宝（共 %1$d 幅）</string>
+    <string name="browser_close">关闭目录</string>
+    <string name="browser_search_placeholder">搜索作品名称或艺术家…</string>
+    <string name="browser_search_desc">搜索</string>
+    <string name="browser_empty">未找到包含 \"%1$s\" 的艺术品</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">画框与展示设置</string>
+    <string name="settings_subtitle">定制 Android TV 与桌面端视觉体验</string>
+    <string name="settings_close">关闭设置</string>
+    <string name="settings_interval_title">幻灯片切换间隔</string>
+    <string name="settings_interval_10s">10 秒</string>
+    <string name="settings_interval_15s">15 秒</string>
+    <string name="settings_interval_30s">30 秒</string>
+    <string name="settings_interval_1m">1 分钟</string>
+    <string name="settings_interval_3m">3 分钟</string>
+    <string name="settings_interval_5m">5 分钟</string>
+    <string name="settings_interval_10m">10 分钟</string>
+
+    <string name="settings_autohide_title">展签标牌自动隐藏</string>
+    <string name="settings_autohide_desc">5 秒后自动隐藏展签卡片</string>
+    <string name="settings_autohide_sub">轻触屏幕或按遥控器按键重新呼出</string>
+
+    <string name="settings_kenburns_title">肯·伯恩斯慢速缩放动效</string>
+    <string name="settings_kenburns_desc">高清名画细节舒缓平移与景深微动</string>
+
+    <string name="settings_clock_title">床头底座时钟叠层</string>
+    <string name="settings_clock_desc">在桌面支架显示典雅数字时钟与日期</string>
+
+    <string name="settings_backlight_title">画作环境流光背光</string>
+    <string name="settings_backlight_desc">根据名画核心色彩投射柔和氛围光晕</string>
+    <string name="settings_glow_intensity">氛围光晕强度</string>
+    <string name="settings_glow_subtle">柔和 (35%)</string>
+    <string name="settings_glow_balanced">均衡 (65%)</string>
+    <string name="settings_glow_vivid">明亮 (100%)</string>
+
+    <string name="settings_soundscapes_title">环境原声声景</string>
+
+    <string name="settings_daydream_title">Android TV Daydream 屏保联动</string>
+    <string name="settings_daydream_desc">将 ArtGallery TV 设置为电视默认系统屏保：\n进入电视设置 → 设备偏好设置 → 屏幕保护程序 → 选择 \'ArtGallery TV\'。</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">艺术赞助与支持</string>
+    <string name="patron_header_subtitle">支持无广告、纯净的公共艺术杰作</string>
+    <string name="patron_close">关闭</string>
+    <string name="patron_active_badge">尊享艺术赞助人（%1$s）</string>
+    <string name="patron_thank_you">衷心感谢您的慷慨赞助！正是由于艺术爱好者的支持，ArtGallery TV 始终保持 100% 无广告体验。</string>
+    <string name="patron_value_statement">ArtGallery TV 将世界级公有领域杰作直呈您的客厅与桌面，无广告侵扰、无数据追踪。</string>
+    <string name="patron_google_play_tiers">Google Play 内购档位（单次赞助）</string>
+    <string name="patron_tier_apprentice">画廊见习生</string>
+    <string name="patron_tier_supporter">艺术拥趸</string>
+    <string name="patron_tier_connoisseur">鉴赏大师</string>
+    <string name="patron_tier_benefactor">博物馆赞助贵宾</string>
+    <string name="patron_btn_become">通过 Google Play 赞助（%1$s）</string>
+    <string name="patron_success_toast">赞助确认成功！感谢您对艺术事业的支持。</string>
+    <string name="patron_success_msg">感谢！您已获得活跃赞助人标识（%1$s）。</string>
+
+    <string name="patron_alt_channels">其他支持渠道</string>
+    <string name="patron_paypal_show">PayPal 与二维码</string>
+    <string name="patron_paypal_hide">隐藏 PayPal</string>
+    <string name="patron_kofi_btn">在 Ko-fi 上赞助</string>
+    <string name="patron_paypal_title">直接通过 PayPal 转账</string>
+    <string name="patron_paypal_scan_prompt">使用手机扫描二维码或通过直链访问：</string>
+    <string name="patron_copy_link">复制链接</string>
+    <string name="patron_open_web">打开网页</string>
+    <string name="patron_toast_paypal_copied">PayPal 链接已复制至剪贴板！</string>
+    <string name="patron_toast_kofi_copied">链接已复制至剪贴板：%1$s</string>
+    <string name="patron_privacy_note">隐私保证：100% 支持离线、零用户数据追踪。</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">沉醉于艺术？支持我们保持纯净无广告</string>
+    <string name="milestone_banner_support">支持我们</string>
+    <string name="milestone_banner_dismiss">忽略</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">支持 ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">尊享艺术赞助人</string>
+    <string name="settings_patron_active_desc">感谢您的慷慨赞助！您的善举确保 ArtGallery TV 保持完全免费与无广告。</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV 是一款开放纯粹、无广告的艺术画框。如果您喜欢这些名作，欢迎考虑成为赞助人。</string>
+    <string name="settings_patron_btn_options">赞助选项</string>
+    <string name="settings_patron_btn_become">成为赞助人</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">静谧展厅</string>
+    <string name="sound_silence_desc">纯粹视觉沉思</string>
+    <string name="sound_rain">天窗雨霖</string>
+    <string name="sound_rain_desc">玻璃穹顶上的柔和细雨</string>
+    <string name="sound_waves">海风拂岸</string>
+    <string name="sound_waves_desc">海岸潮声韵律</string>
+    <string name="sound_cafe">庭院花园</string>
+    <string name="sound_cafe_desc">暮色庭院里的微风细语</string>
+</resources>

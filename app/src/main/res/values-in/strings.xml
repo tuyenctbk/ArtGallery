@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">ArtGallery TV</string>
+    
+    <!-- Splash & Brand -->
+    <string name="splash_museum_title">THE METROPOLITAN MUSEUM OF ART</string>
+    <string name="splash_tagline">Masterkarya 4K CC0 Domain Publik • Penghemat Layar Ambien</string>
+    <string name="splash_loading">Membuka galeri kurasi…</string>
+    <string name="kiosk_brand_subtitle">Museum Metropolitan • CC0 4K</string>
+
+    <!-- Navigation & Playback Controls -->
+    <string name="control_prev">Karya Sebelumnya</string>
+    <string name="control_next">Karya Berikutnya</string>
+    <string name="control_play">Putar Tayangan Slide</string>
+    <string name="control_pause">Jeda Tayangan Slide</string>
+    <string name="control_browse">Jelajahi Galeri</string>
+    <string name="control_settings">Pengaturan</string>
+    <string name="control_desk_stand">Mode Penyangga Meja</string>
+    <string name="control_soundscapes">Lanskap Suara Ambien</string>
+    <string name="control_departments">Departemen &amp; Aliran Seni</string>
+
+    <!-- Placard & Details -->
+    <string name="placard_fav_add">Tambah ke favorit</string>
+    <string name="placard_fav_remove">Hapus dari favorit</string>
+    <string name="placard_details">Detail Karya Seni</string>
+    <string name="met_accession">Nomor Inventaris Met: %1$s</string>
+    <string name="loading_category">Memuat %1$s dari API Museum Met…</string>
+
+    <!-- Details Modal -->
+    <string name="details_title">CATATAN KURATORIAL</string>
+    <string name="details_close">Tutup Detail</string>
+    <string name="details_label_date">Tanggal</string>
+    <string name="details_label_medium">Media</string>
+    <string name="details_label_dimensions">Dimensi</string>
+    <string name="details_label_department">Departemen</string>
+    <string name="details_label_culture">Budaya / Periode</string>
+    <string name="details_label_credit">Jalur Kredit</string>
+    <string name="details_label_accession">Nomor Registrasi</string>
+    <string name="details_curatorial_overview">Ringkasan Kuratorial</string>
+    <string name="details_saved_private">Tersimpan di Galeri Pribadi</string>
+    <string name="details_add_private">Tambah ke Galeri Pribadi</string>
+
+    <!-- Category / Department Dialog -->
+    <string name="category_dialog_title">DEPARTEMEN &amp; ALIRAN SENI</string>
+    <string name="category_dialog_subtitle">Saring Tayangan Slide dari Koleksi Museum Met</string>
+    <string name="category_close">Tutup Layar Pilihan</string>
+    <string name="category_all">Semua Kategori</string>
+    <string name="category_movements">Aliran Seni</string>
+    <string name="category_departments">Departemen Met</string>
+    <string name="category_favorites">Galeri Pribadi</string>
+    <string name="category_badge_active">AKTIF</string>
+    <string name="category_badge_movement">ALIRAN SENI</string>
+    <string name="category_badge_department">DEPARTEMEN MET</string>
+    <string name="category_badge_favorites">GALERI PRIBADI</string>
+    <string name="category_badge_collection">KOLEKSI LENGKAP</string>
+
+    <!-- Gallery Catalog Browser -->
+    <string name="browser_title">KATALOG MUSEUM METROPOLITAN</string>
+    <string name="browser_subtitle">Jelajahi Masterkarya CC0 Domain Publik (%1$d Karya)</string>
+    <string name="browser_close">Tutup Katalog</string>
+    <string name="browser_search_placeholder">Cari judul karya atau seniman…</string>
+    <string name="browser_search_desc">Cari</string>
+    <string name="browser_empty">Tidak ada karya yang cocok untuk \"%1$s\"</string>
+
+    <!-- Settings Drawer -->
+    <string name="settings_title">PENGATURAN BINGKAI &amp; KIOSK</string>
+    <string name="settings_subtitle">Kustomisasi Pengalaman Android TV &amp; Penyangga Meja</string>
+    <string name="settings_close">Tutup Pengaturan</string>
+    <string name="settings_interval_title">Interval Tayangan Slide</string>
+    <string name="settings_interval_10s">10 Detik</string>
+    <string name="settings_interval_15s">15 Detik</string>
+    <string name="settings_interval_30s">30 Detik</string>
+    <string name="settings_interval_1m">1 Menit</string>
+    <string name="settings_interval_3m">3 Menit</string>
+    <string name="settings_interval_5m">5 Menit</string>
+    <string name="settings_interval_10m">10 Menit</string>
+
+    <string name="settings_autohide_title">Sembunyikan Plakat Otomatis</string>
+    <string name="settings_autohide_desc">Sembunyikan plakat karya otomatis setelah 5 detik</string>
+    <string name="settings_autohide_sub">Sentuh layar atau tekan tombol apa saja untuk menampilkan kembali</string>
+
+    <string name="settings_kenburns_title">Efek Ken Burns (Zoom Halus)</string>
+    <string name="settings_kenburns_desc">Gerakan atmosferik lambat dan pembesaran pada karya seni resolusi tinggi</string>
+
+    <string name="settings_clock_title">Tampilan Jam Mode Meja</string>
+    <string name="settings_clock_desc">Menampilkan jam digital anggun dan tanggal</string>
+
+    <string name="settings_backlight_title">Lampu Latar Kanvas Ambien</string>
+    <string name="settings_backlight_desc">Mengambil warna dominan karya untuk memancarkan kilau lembut</string>
+    <string name="settings_glow_intensity">Intensitas Kilau Cahaya</string>
+    <string name="settings_glow_subtle">Lembut (35%)</string>
+    <string name="settings_glow_balanced">Seimbang (65%)</string>
+    <string name="settings_glow_vivid">Terang (100%)</string>
+
+    <string name="settings_soundscapes_title">Lanskap Suara Ambien</string>
+
+    <string name="settings_daydream_title">Integrasi Penghemat Layar Android TV</string>
+    <string name="settings_daydream_desc">Untuk mengaktifkan ArtGallery TV sebagai penghemat layar default:\nBuka Pengaturan Android TV → Preferensi Perangkat → Penghemat Layar → Pilih \'ArtGallery TV\'.</string>
+
+    <!-- Patronage & Donation Support -->
+    <string name="patron_header_title">PATRONASE MUSEUM</string>
+    <string name="patron_header_subtitle">Dukung Masterkarya CC0 Tanpa Iklan</string>
+    <string name="patron_close">Tutup</string>
+    <string name="patron_active_badge">Patron Aktif Museum (%1$s)</string>
+    <string name="patron_thank_you">Terima kasih atas dukungan tulus Anda! ArtGallery TV 100% bebas iklan berkat pecinta seni seperti Anda.</string>
+    <string name="patron_value_statement">ArtGallery TV menghadirkan mahakarya seni kelas dunia langsung ke ruang santai Anda tanpa iklan atau pelacakan data.</string>
+    <string name="patron_google_play_tiers">Tingkat Google Play (Sekali Bayar)</string>
+    <string name="patron_tier_apprentice">Murid Galeri</string>
+    <string name="patron_tier_supporter">Pendukung Seni</string>
+    <string name="patron_tier_connoisseur">Pakar Seni</string>
+    <string name="patron_tier_benefactor">Donatur Utama</string>
+    <string name="patron_btn_become">Dukung via Google Play (%1$s)</string>
+    <string name="patron_success_toast">Patronase dikonfirmasi! Terima kasih telah mendukung seni.</string>
+    <string name="patron_success_msg">Terima kasih! Anda kini terdaftar sebagai Patron Aktif (%1$s).</string>
+
+    <string name="patron_alt_channels">Saluran Dukungan Lainnya</string>
+    <string name="patron_paypal_show">PayPal &amp; QR</string>
+    <string name="patron_paypal_hide">Sembunyikan PayPal</string>
+    <string name="patron_kofi_btn">Beri Tip di Ko-fi</string>
+    <string name="patron_paypal_title">Transfer Langsung PayPal</string>
+    <string name="patron_paypal_scan_prompt">Pindai dari ponsel atau gunakan tautan langsung:</string>
+    <string name="patron_copy_link">Salin Tautan</string>
+    <string name="patron_open_web">Buka Web</string>
+    <string name="patron_toast_paypal_copied">Tautan PayPal disalin ke papan klip!</string>
+    <string name="patron_toast_kofi_copied">Tautan disalin ke papan klip: %1$s</string>
+    <string name="patron_privacy_note">Jaminan Privasi: 100% mendukung mode luring &amp; tanpa pelacakan data pengguna.</string>
+
+    <!-- Milestone Banner -->
+    <string name="milestone_banner_text">Menikmati karya seni? Bantu jaga tetap bebas iklan</string>
+    <string name="milestone_banner_support">Dukung</string>
+    <string name="milestone_banner_dismiss">Tutup</string>
+
+    <!-- Support Settings Card -->
+    <string name="settings_patron_title">DUKUNG ARTGALLERY TV</string>
+    <string name="settings_patron_active_title">PATRON AKTIF MUSEUM</string>
+    <string name="settings_patron_active_desc">Terima kasih atas kemurahan hati Anda! Kontribusi Anda memastikan ArtGallery TV tetap gratis dan dapat diakses siapa saja.</string>
+    <string name="settings_patron_normal_desc">ArtGallery TV adalah kios seni terbuka yang privat dan tanpa iklan. Pertimbangkan untuk menjadi donatur.</string>
+    <string name="settings_patron_btn_options">Opsi Patron</string>
+    <string name="settings_patron_btn_become">Menjadi Patron</string>
+
+    <!-- Soundscape Titles & Descriptions -->
+    <string name="sound_silence">Galeri Hening</string>
+    <string name="sound_silence_desc">Kontemplasi visual murni</string>
+    <string name="sound_rain">Hujan di Skylight</string>
+    <string name="sound_rain_desc">Gerimis lembut di kubah kaca museum</string>
+    <string name="sound_waves">Semilir Angin Laut</string>
+    <string name="sound_waves_desc">Deburan ombak pesisir yang menenangkan</string>
+    <string name="sound_cafe">Taman Halaman Tengah</string>
+    <string name="sound_cafe_desc">Angin sore lembut di taman museum</string>
+</resources>
